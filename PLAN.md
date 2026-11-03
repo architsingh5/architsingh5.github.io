@@ -15,7 +15,7 @@ systems, and also ships real side projects.*
 | Hero | Name, one-line positioning, location, CTA buttons (Get in touch → contact form, GitHub, LinkedIn) |
 | Impact strip | 54% / 64% primary-host load cut · 75% faster dashboards · 7 → 1 day rule changes · 12% runtime cut |
 | Follow a trade | Scroll story: one trade moves through the kind of pipeline I build (exchange → 3 striped hosts → Kafka → hydration → OLTP + Snowflake → DB2 controls → reports). Each stage reveals one real achievement |
-| Experience | Goldman Sachs SDE1 (Jul 2023 – present), Intern (May – Jul 2022): the resume bullets grouped by theme |
+| Experience | Goldman Sachs SDE1 on the Listed Clearing team, Middle Office (Jul 2023 – present), Intern (May – Jul 2022): the resume bullets grouped by theme |
 | Projects | **Featured:** Market Data MCP Server, Water Reminder (Android), Fuzzy Traffic Control, MouseTrail. **Earlier work:** CartWeb, Majestic Holidays, Form Buddy, Selfie Hand/Voice, Selenium Collection |
 | Problem solving | 1,000+ combined. **LeetCode:** 818 solved (Easy/Medium/Hard split), global rank, badges, solved by language, most-solved topics. Refreshed weekly by a GitHub Action. **GeeksforGeeks:** 213 solved, coding score 649, institute rank 1,002 (static, since GfG has no public API) |
 | Skills | Languages, data, messaging, backend, core CS, AI tools |

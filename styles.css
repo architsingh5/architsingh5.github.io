@@ -454,3 +454,4 @@ b, strong { font-weight: 600; color: var(--text); }
 .edu-logo { flex: none; display: grid; place-items: center; width: 84px; height: 84px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); padding: 6px; }
 .edu-logo img { width: 100%; height: 100%; object-fit: contain; }
 @media (max-width: 420px) { .edu { align-items: flex-start; } .edu-logo { width: 64px; height: 64px; padding: 8px; } }
+.team { margin-top: 4px; font-size: 14px; color: var(--accent); font-weight: 500; }
