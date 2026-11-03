@@ -32,6 +32,55 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
 
+  /* ---------- LeetCode: refresh snapshot from data/leetcode.json ---------- */
+  const fmt = n => Number(n).toLocaleString('en-US');
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  fetch('data/leetcode.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(d => {
+      const set = (k, v) => document.querySelectorAll(`[data-lc="${k}"]`).forEach(el => { el.textContent = v; });
+      set('solved', fmt(d.solved));
+      set('acceptanceLine', d.acceptance != null ? `${d.acceptance}% acceptance` : '');
+      set('ranking', fmt(d.ranking));
+      set('badges', fmt(d.badges));
+      const total = d.difficulty.reduce((a, x) => a + x.solved, 0) || 1;
+      const parts = [];
+      d.difficulty.forEach(x => {
+        const pct = Math.round((x.solved / total) * 100);
+        set(`${x.name}.solved`, fmt(x.solved));
+        set(`${x.name}.total`, fmt(x.total));
+        const seg = document.querySelector(`[data-lc-seg="${x.name}"]`);
+        if (seg) {
+          seg.style.flexGrow = x.solved;
+          seg.style.display = x.solved ? '' : 'none';
+          seg.dataset.tip = `${x.name} · ${fmt(x.solved)} solved · ${pct}%`;
+          const lbl = seg.querySelector('.seg-lbl');
+          if (lbl) lbl.textContent = pct >= 7 ? `${pct}%` : '';
+        }
+        parts.push(`${x.name} ${fmt(x.solved)} (${pct}%)`);
+      });
+      const aria = document.querySelector('[data-lc-aria]');
+      if (aria) aria.setAttribute('aria-label', `Solved by difficulty: ${parts.join(', ')}`);
+
+      const langs = document.querySelector('[data-lc-list="languages"]');
+      if (langs && d.languages && d.languages.length) {
+        const max = Math.max(...d.languages.map(l => l.solved)) || 1;
+        langs.innerHTML = d.languages.slice(0, 4).map(l =>
+          `<li><span class="lang-name">${esc(l.name)}</span><span class="lang-bar"><i style="width:${(l.solved / max * 100).toFixed(1)}%"></i></span><span class="mono lang-n">${fmt(l.solved)}</span></li>`
+        ).join('');
+      }
+      const topics = document.querySelector('[data-lc-list="topics"]');
+      if (topics && d.topics && d.topics.length) {
+        topics.innerHTML = d.topics.slice(0, 9).map(t => `<li>${esc(t.name)} <b>${fmt(t.solved)}</b></li>`).join('');
+      }
+      const up = document.querySelector('[data-lc="updated"]');
+      if (up && d.updated) {
+        up.setAttribute('datetime', d.updated);
+        up.textContent = new Date(d.updated + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+      }
+    })
+    .catch(() => { /* keep the baked-in snapshot */ });
+
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ---------- Hero: event-stream canvas ----------

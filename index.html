@@ -29,6 +29,7 @@
         <ul class="nav-links">
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#leetcode">LeetCode</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -190,11 +191,75 @@
       </div>
     </section>
 
+    <!-- LEETCODE (values below are a snapshot; script.js refreshes them from data/leetcode.json) -->
+    <section class="section" id="leetcode">
+      <div class="wrap">
+        <header class="sec-head lc-head">
+          <div>
+            <p class="kicker mono">03 / Problem solving</p>
+            <h2>LeetCode</h2>
+          </div>
+          <a class="btn" href="https://leetcode.com/u/architsingh5/" target="_blank" rel="noopener">View profile ↗</a>
+        </header>
+
+        <div class="lc">
+          <div class="lc-main card">
+            <div class="lc-hero">
+              <span class="lc-big" data-lc="solved">818</span>
+              <span class="lc-sub">problems solved<br><span class="mono" data-lc="acceptanceLine">69.4% acceptance</span></span>
+            </div>
+
+            <div class="seg" role="img" data-lc-aria aria-label="Solved by difficulty: Easy 300 (37%), Medium 443 (54%), Hard 75 (9%)">
+              <span class="seg-part d-easy" tabindex="0" data-lc-seg="Easy" style="flex-grow:300" data-tip="Easy · 300 solved · 37%"><span class="seg-lbl">37%</span></span>
+              <span class="seg-part d-med" tabindex="0" data-lc-seg="Medium" style="flex-grow:443" data-tip="Medium · 443 solved · 54%"><span class="seg-lbl">54%</span></span>
+              <span class="seg-part d-hard" tabindex="0" data-lc-seg="Hard" style="flex-grow:75" data-tip="Hard · 75 solved · 9%"><span class="seg-lbl">9%</span></span>
+            </div>
+
+            <table class="lc-table">
+              <caption class="sr-only">Problems solved by difficulty</caption>
+              <thead><tr><th scope="col">Difficulty</th><th scope="col">Solved</th><th scope="col">Available</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><i class="sw d-easy"></i>Easy</th><td class="mono" data-lc="Easy.solved">300</td><td class="mono" data-lc="Easy.total">975</td></tr>
+                <tr><th scope="row"><i class="sw d-med"></i>Medium</th><td class="mono" data-lc="Medium.solved">443</td><td class="mono" data-lc="Medium.total">2,138</td></tr>
+                <tr><th scope="row"><i class="sw d-hard"></i>Hard</th><td class="mono" data-lc="Hard.solved">75</td><td class="mono" data-lc="Hard.total">987</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="lc-side">
+            <div class="lc-tiles">
+              <div class="tile card"><span class="tile-lbl">Global rank</span><span class="tile-val" data-lc="ranking">65,590</span></div>
+              <div class="tile card"><span class="tile-lbl">Badges</span><span class="tile-val" data-lc="badges">16</span></div>
+            </div>
+
+            <div class="card lc-block">
+              <h3 class="lc-h mono">Solved by language</h3>
+              <ul class="langs" data-lc-list="languages">
+                <li><span class="lang-name">C++</span><span class="lang-bar"><i style="width:100%"></i></span><span class="mono lang-n">714</span></li>
+                <li><span class="lang-name">Java</span><span class="lang-bar"><i style="width:15.4%"></i></span><span class="mono lang-n">110</span></li>
+                <li><span class="lang-name">MySQL</span><span class="lang-bar"><i style="width:3.9%"></i></span><span class="mono lang-n">28</span></li>
+              </ul>
+            </div>
+
+            <div class="card lc-block">
+              <h3 class="lc-h mono">Most-solved topics</h3>
+              <ul class="topics mono" data-lc-list="topics">
+                <li>Array <b>443</b></li><li>String <b>181</b></li><li>Hash Table <b>162</b></li>
+                <li>Dynamic Programming <b>111</b></li><li>Sorting <b>109</b></li><li>Depth-First Search <b>107</b></li>
+                <li>Math <b>101</b></li><li>Backtracking <b>30</b></li><li>Union-Find <b>24</b></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="lc-upd mono">Stats refresh weekly · last updated <time data-lc="updated" datetime="2026-11-03">3 Nov 2026</time></p>
+      </div>
+    </section>
+
     <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="wrap">
         <header class="sec-head">
-          <p class="kicker mono">03 / Skills</p>
+          <p class="kicker mono">04 / Skills</p>
           <h2>Toolbox</h2>
         </header>
         <dl class="skills">
@@ -213,7 +278,7 @@
       <div class="wrap two-col">
         <div>
           <header class="sec-head">
-            <p class="kicker mono">04 / Education</p>
+            <p class="kicker mono">05 / Education</p>
             <h2>Background</h2>
           </header>
           <div class="edu">
@@ -224,7 +289,7 @@
         </div>
         <div>
           <header class="sec-head">
-            <p class="kicker mono">05 / Achievements</p>
+            <p class="kicker mono">06 / Achievements</p>
             <h2>Along the way</h2>
           </header>
           <ul class="ach">
@@ -239,14 +304,16 @@
     <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="wrap">
-        <p class="kicker mono">06 / Contact</p>
+        <p class="kicker mono">07 / Contact</p>
         <h2>Let's talk.</h2>
         <p class="lede">Open to conversations about backend, distributed systems and low-latency engineering roles.</p>
         <a class="mail mono" href="mailto:architsingh5@gmail.com">architsingh5@gmail.com</a>
         <ul class="socials">
           <li><a href="https://github.com/architsingh5" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://leetcode.com/u/architsingh5/" target="_blank" rel="noopener">LeetCode</a></li>
           <li><a href="https://x.com/ArchitSingh51" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://www.instagram.com/archit._.singh_/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
     </section>
