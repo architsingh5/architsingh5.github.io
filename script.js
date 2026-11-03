@@ -194,3 +194,123 @@
   window.addEventListener('resize', () => { resize(); });
   heroIO.observe(canvas);
 })();
+
+/* ---------- Follow a trade: scroll-driven pipeline ---------- */
+(() => {
+  const section = document.getElementById('trade');
+  if (!section) return;
+  const svg = section.querySelector('.pipe');
+  const steps = [...section.querySelectorAll('.step')];
+  const parts = [...svg.querySelectorAll('[data-s]')];
+  const route = svg.querySelector('.route');
+  const dot = svg.querySelector('.trade-dot');
+  const tag = dot.querySelector('.tag');
+  const packetLayer = svg.querySelector('.packets');
+  const hudN = section.querySelector('.hud-n');
+  const hudName = section.querySelector('.hud-name');
+  const hudBar = section.querySelector('.hud-bar i');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const NS = 'http://www.w3.org/2000/svg';
+  const names = steps.map(s => s.querySelector('.step-n').textContent.split('·')[1].trim());
+  section.classList.add('js');
+
+  // Where along the route each stage's node sits (route length, found by sampling).
+  const anchorsXY = [[300, 86], [470, 147], [470, 270], [465, 487], [355, 510], [300, 600]];
+  const L = route.getTotalLength();
+  const samples = [];
+  for (let i = 0; i <= 600; i++) { const l = (L * i) / 600; const p = route.getPointAtLength(l); samples.push([l, p.x, p.y]); }
+  let from = 0;
+  const anchors = anchorsXY.map(([x, y]) => {
+    let best = from, bd = Infinity;
+    for (const [l, px, py] of samples) {
+      if (l < from) continue;
+      const d = (px - x) ** 2 + (py - y) ** 2;
+      if (d < bd) { bd = d; best = l; }
+    }
+    from = best;
+    return best;
+  });
+
+  // Packets: two per edge, flowing toward the destination.
+  const edges = [...svg.querySelectorAll('.edges path')].map(path => {
+    const len = path.getTotalLength();
+    const dots = [0, 0.5].map(off => {
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('r', path.classList.contains('lane') ? 2.2 : 2.8);
+      c.style.display = 'none';
+      packetLayer.appendChild(c);
+      return { c, off: off + Math.random() * 0.2 };
+    });
+    return { path, len, dots, s: +path.dataset.s, speed: path.classList.contains('lane') ? 0.35 : 0.6 + Math.random() * 0.3 };
+  });
+
+  let active = -1;
+  function setStage(i) {
+    if (i === active) return;
+    active = i;
+    parts.forEach(el => {
+      const s = +el.dataset.s;
+      el.classList.toggle('on', s <= i);
+      el.classList.toggle('cur', s === i);
+    });
+    steps.forEach((st, k) => st.classList.toggle('is-active', k === i));
+    edges.forEach(e => e.dots.forEach(d => { d.c.style.display = e.s <= i && !reduce.matches ? '' : 'none'; }));
+    hudN.textContent = String(i + 1).padStart(2, '0');
+    hudName.textContent = names[i];
+  }
+
+  const ease = t => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+  function placeDot(len) {
+    const p = route.getPointAtLength(Math.max(0, Math.min(L, len)));
+    dot.setAttribute('transform', `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
+    tag.setAttribute('transform', p.y < 120 ? 'translate(0 60)' : '');
+    // keep the label inside the diagram
+  }
+
+  function update() {
+    const mid = window.innerHeight * 0.55;
+    let i = 0, t = 0;
+    for (let k = 0; k < steps.length; k++) {
+      const r = steps[k].getBoundingClientRect();
+      if (r.top <= mid) { i = k; t = Math.min(1, Math.max(0, (mid - r.top) / r.height)); }
+    }
+    setStage(i);
+    const next = Math.min(i + 1, anchors.length - 1);
+    const local = reduce.matches ? 0 : ease(Math.min(1, Math.max(0, (t - 0.5) / 0.4)));
+    placeDot(anchors[i] + (anchors[next] - anchors[i]) * local);
+    const first = steps[0].getBoundingClientRect(), last = steps[steps.length - 1].getBoundingClientRect();
+    const total = (mid - first.top) / (last.bottom - first.top);
+    hudBar.style.width = `${Math.max(0, Math.min(1, total)) * 100}%`;
+  }
+
+  let ticking = false;
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  // Packet animation runs only while the section is on screen.
+  let raf = 0, last = 0, visible = false;
+  function tick(now) {
+    const dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
+    last = now;
+    for (const e of edges) {
+      if (e.s > active) continue;
+      for (const d of e.dots) {
+        d.off = (d.off + dt * e.speed * (120 / e.len)) % 1;
+        const p = e.path.getPointAtLength(d.off * e.len);
+        d.c.setAttribute('cx', p.x.toFixed(1));
+        d.c.setAttribute('cy', p.y.toFixed(1));
+      }
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  function run() {
+    cancelAnimationFrame(raf); last = 0;
+    if (visible && !reduce.matches && !document.hidden) raf = requestAnimationFrame(tick);
+  }
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; run(); }).observe(section);
+  document.addEventListener('visibilitychange', run);
+  reduce.addEventListener('change', () => { active = -1; update(); run(); });
+
+  update();
+})();

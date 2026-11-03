@@ -27,6 +27,7 @@
       <a class="brand" href="#top" aria-label="Archit Singh, home">AS<span class="dot">.</span></a>
       <nav aria-label="Sections">
         <ul class="nav-links">
+          <li><a href="#trade">How I build</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#leetcode">LeetCode</a></li>
@@ -72,11 +73,107 @@
       </div>
     </section>
 
+    <!-- FOLLOW A TRADE (scroll story) -->
+    <section class="section trade" id="trade" aria-labelledby="trade-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker mono">01 / How I build</p>
+          <h2 id="trade-title">Follow a trade</h2>
+          <p class="lede">Scroll to send one trade through the kind of pipeline I build at Goldman Sachs. Each stage is something I shipped.</p>
+          <p class="note mono">A simplified composite of systems I've worked on, with no proprietary detail.</p>
+        </header>
+        <div class="trade-grid">
+          <div class="trade-stage">
+            <div class="stage-card">
+              <svg class="pipe" viewBox="0 0 600 680" role="img" aria-labelledby="pipe-t">
+                <title id="pipe-t">Pipeline diagram: exchange, three ingestion hosts, Kafka, data hydration, OLTP and Snowflake stores, DB2 controls, reports</title>
+                <g class="edges">
+                  <path data-s="1" d="M300,86 C300,130 130,115 130,147"/>
+                  <path data-s="1" d="M300,86 L300,147"/>
+                  <path data-s="1" d="M300,86 C300,130 470,115 470,147"/>
+                  <path data-s="2" d="M130,193 L130,270"/>
+                  <path data-s="2" d="M300,193 L300,270"/>
+                  <path data-s="2" d="M470,193 L470,270"/>
+                  <path data-s="2" class="lane" d="M95,285 L505,285"/>
+                  <path data-s="2" class="lane" d="M95,300 L505,300"/>
+                  <path data-s="2" class="lane" d="M95,315 L505,315"/>
+                  <path data-s="3" d="M300,330 L300,377"/>
+                  <path data-s="3" d="M300,423 C300,465 135,450 135,487"/>
+                  <path data-s="3" d="M300,423 C300,465 465,450 465,487"/>
+                  <path data-s="4" d="M210,510 L245,510"/>
+                  <path data-s="4" d="M390,510 L355,510"/>
+                  <path data-s="5" d="M300,533 L300,600"/>
+                </g>
+                <g class="nodes">
+                  <g data-s="0"><rect x="190" y="34" width="220" height="52" rx="10"/><text x="300" y="58" class="t">Exchange</text><text x="300" y="75" class="sub">ICE EU · NYMEX</text></g>
+                  <g data-s="1"><rect x="65" y="147" width="130" height="46" rx="10"/><text x="130" y="176" class="t">host-1</text></g>
+                  <g data-s="1"><rect x="235" y="147" width="130" height="46" rx="10"/><text x="300" y="176" class="t">host-2</text></g>
+                  <g data-s="1"><rect x="405" y="147" width="130" height="46" rx="10"/><text x="470" y="176" class="t">host-3</text></g>
+                  <g data-s="2"><rect class="box" x="80" y="270" width="440" height="60" rx="10"/><text x="514" y="350" class="sub end keep">Kafka · 3 partitions</text></g>
+                  <g data-s="3"><rect x="200" y="377" width="200" height="46" rx="10"/><text x="300" y="397" class="t">Data Hydration</text><text x="300" y="413" class="sub">Java · outbox</text></g>
+                  <g data-s="3"><rect x="60" y="487" width="150" height="46" rx="10"/><text x="135" y="507" class="t">OLTP</text><text x="135" y="523" class="sub">GCP</text></g>
+                  <g data-s="3"><rect x="390" y="487" width="150" height="46" rx="10"/><text x="465" y="507" class="t">Snowflake</text><text x="465" y="523" class="sub">OLAP</text></g>
+                  <g data-s="4"><rect x="245" y="487" width="110" height="46" rx="10"/><text x="300" y="507" class="t">Controls</text><text x="300" y="523" class="sub">DB2 · recon</text></g>
+                  <g data-s="5"><rect x="190" y="600" width="220" height="52" rx="10"/><text x="300" y="624" class="t">Reports</text><text x="300" y="641" class="sub">TIBCO RV · dashboards</text></g>
+                </g>
+                <g class="packets" aria-hidden="true"></g>
+                <path class="route" d="M300,86 C300,130 470,115 470,147 L470,300 L300,300 L300,423 C300,465 465,450 465,487 L465,510 L355,510 L300,510 L300,600"/>
+                <g class="trade-dot" aria-hidden="true">
+                  <circle class="halo" r="16"/><circle class="core" r="7"/>
+                  <g class="tag"><rect x="-38" y="-40" width="76" height="22" rx="6"/><text x="0" y="-25">TRD-7731</text></g>
+                </g>
+              </svg>
+              <div class="hud mono" aria-hidden="true"><span>stage <b class="hud-n">01</b> / 06</span><span class="hud-name">Exchange</span></div>
+              <div class="hud-bar" aria-hidden="true"><i></i></div>
+            </div>
+          </div>
+          <div class="trade-steps">
+            <article class="step" data-step="0">
+              <p class="step-n mono">01 · Exchange</p>
+              <h3>A trade prints on the exchange</h3>
+              <p>Orders and executions arrive from <b>ICE EU</b> and <b>NYMEX</b> at peak-hour volume. Everything downstream has to keep up: orders, executions, clearing.</p>
+              <p class="step-metric"><span class="lbl">the start of the trade lifecycle</span></p>
+            </article>
+            <article class="step" data-step="1">
+              <p class="step-n mono">02 · Ingestion</p>
+              <h3>Striped across three hosts</h3>
+              <p>Instead of one primary host taking all the flow, I striped ICE EU and NYMEX traffic across <b>three load-balanced hosts</b>, so a busy market no longer means one hot machine.</p>
+              <p class="step-metric"><span class="num mono">54% / 64%</span><span class="lbl">less load on the primary host, with steady throughput at peak</span></p>
+            </article>
+            <article class="step" data-step="2">
+              <p class="step-n mono">03 · Kafka</p>
+              <h3>Onto the backbone</h3>
+              <p>Each trade becomes an event on <b>Kafka</b> topics. A <b>transactional outbox</b> commits the state change and the event together, so downstream services never miss a trade.</p>
+              <p class="step-metric"><span class="num mono">Outbox</span><span class="lbl">reliable delivery between services</span></p>
+            </article>
+            <article class="step" data-step="3">
+              <p class="step-n mono">04 · Hydration</p>
+              <h3>Hydrated for every reader</h3>
+              <p>Java/Kafka <b>Data Hydration</b> pipelines publish the trade twice: to a GCP-backed <b>OLTP</b> store for live lookups and to a <b>Snowflake</b> lakehouse for analytics.</p>
+              <p class="step-metric"><span class="num mono">OLTP + OLAP</span><span class="lbl">one pipeline feeding both kinds of store</span></p>
+            </article>
+            <article class="step" data-step="4">
+              <p class="step-n mono">05 · Controls</p>
+              <h3>Checked, mapped, reconciled</h3>
+              <p><b>DB2</b>-based controls reconcile what landed against the source. The firmwide mapping rules that classify each trade are now read from a database instead of static definitions, so changing a rule no longer takes a week.</p>
+              <p class="step-metric"><span class="num mono">7d → 1d</span><span class="lbl">rule-change turnaround</span></p>
+            </article>
+            <article class="step" data-step="5">
+              <p class="step-n mono">06 · Reporting</p>
+              <h3>Out the other side</h3>
+              <p>Broker reports for the <b>Korean</b> and <b>South African</b> markets reconcile executions against client orders over <b>TIBCO RV</b> and run on an interval. Dashboards that read the data are now much faster.</p>
+              <p class="step-metric"><span class="num mono">75%</span><span class="lbl">faster dashboard responses after query-path profiling</span></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <div class="wrap">
         <header class="sec-head">
-          <p class="kicker mono">01 / Experience</p>
+          <p class="kicker mono">02 / Experience</p>
           <h2>Where I work</h2>
         </header>
 
@@ -130,7 +227,7 @@
     <section class="section" id="projects">
       <div class="wrap">
         <header class="sec-head">
-          <p class="kicker mono">02 / Projects</p>
+          <p class="kicker mono">03 / Projects</p>
           <h2>Things I've built</h2>
         </header>
 
@@ -196,7 +293,7 @@
       <div class="wrap">
         <header class="sec-head lc-head">
           <div>
-            <p class="kicker mono">03 / Problem solving</p>
+            <p class="kicker mono">04 / Problem solving</p>
             <h2>LeetCode</h2>
           </div>
           <a class="btn" href="https://leetcode.com/u/architsingh5/" target="_blank" rel="noopener">View profile ↗</a>
@@ -259,7 +356,7 @@
     <section class="section" id="skills">
       <div class="wrap">
         <header class="sec-head">
-          <p class="kicker mono">04 / Skills</p>
+          <p class="kicker mono">05 / Skills</p>
           <h2>Toolbox</h2>
         </header>
         <dl class="skills">
@@ -278,7 +375,7 @@
       <div class="wrap two-col">
         <div>
           <header class="sec-head">
-            <p class="kicker mono">05 / Education</p>
+            <p class="kicker mono">06 / Education</p>
             <h2>Background</h2>
           </header>
           <div class="edu">
@@ -289,7 +386,7 @@
         </div>
         <div>
           <header class="sec-head">
-            <p class="kicker mono">06 / Achievements</p>
+            <p class="kicker mono">07 / Achievements</p>
             <h2>Along the way</h2>
           </header>
           <ul class="ach">
@@ -304,7 +401,7 @@
     <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="wrap">
-        <p class="kicker mono">07 / Contact</p>
+        <p class="kicker mono">08 / Contact</p>
         <h2>Let's talk.</h2>
         <p class="lede">Open to conversations about backend, distributed systems and low-latency engineering roles.</p>
         <a class="mail mono" href="mailto:architsingh5@gmail.com">architsingh5@gmail.com</a>
