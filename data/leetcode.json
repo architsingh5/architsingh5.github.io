@@ -6,24 +6,72 @@
   "ranking": 65590,
   "badges": 16,
   "difficulty": [
-    { "name": "Easy", "solved": 300, "total": 975 },
-    { "name": "Medium", "solved": 443, "total": 2138 },
-    { "name": "Hard", "solved": 75, "total": 987 }
+    {
+      "name": "Easy",
+      "solved": 300,
+      "total": 975
+    },
+    {
+      "name": "Medium",
+      "solved": 443,
+      "total": 2138
+    },
+    {
+      "name": "Hard",
+      "solved": 75,
+      "total": 987
+    }
   ],
   "languages": [
-    { "name": "C++", "solved": 714 },
-    { "name": "Java", "solved": 110 },
-    { "name": "MySQL", "solved": 28 }
+    {
+      "name": "C++",
+      "solved": 714
+    },
+    {
+      "name": "Java",
+      "solved": 110
+    },
+    {
+      "name": "MySQL",
+      "solved": 28
+    }
   ],
   "topics": [
-    { "name": "Array", "solved": 443 },
-    { "name": "String", "solved": 181 },
-    { "name": "Hash Table", "solved": 162 },
-    { "name": "Dynamic Programming", "solved": 111 },
-    { "name": "Sorting", "solved": 109 },
-    { "name": "Depth-First Search", "solved": 107 },
-    { "name": "Math", "solved": 101 },
-    { "name": "Backtracking", "solved": 30 },
-    { "name": "Union-Find", "solved": 24 }
+    {
+      "name": "Array",
+      "solved": 443
+    },
+    {
+      "name": "String",
+      "solved": 181
+    },
+    {
+      "name": "Hash Table",
+      "solved": 162
+    },
+    {
+      "name": "Dynamic Programming",
+      "solved": 111
+    },
+    {
+      "name": "Sorting",
+      "solved": 109
+    },
+    {
+      "name": "Depth-First Search",
+      "solved": 107
+    },
+    {
+      "name": "Math",
+      "solved": 101
+    },
+    {
+      "name": "Tree",
+      "solved": 84
+    },
+    {
+      "name": "Breadth-First Search",
+      "solved": 81
+    }
   ]
 }
