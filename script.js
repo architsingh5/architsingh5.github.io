@@ -347,11 +347,22 @@
       const res = await fetch(`https://formspree.io/f/${encodeURIComponent(id)}`, {
         method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' },
       });
-      if (!res.ok) throw new Error(String(res.status));
+      if (!res.ok) {
+        // Formspree explains rejections in JSON: { error: "...", errors: [{ message, code, field }] }
+        let why = `HTTP ${res.status}`;
+        try {
+          const j = await res.json();
+          const list = (j.errors || []).map(x => x.message || x.code).filter(Boolean);
+          why = list.join('; ') || j.error || why;
+        } catch {}
+        const err = new Error(why); err.fromServer = true; throw err;
+      }
       form.reset();
       say('Thanks! Your message is on its way, and I’ll get back to you soon.', 'ok');
-    } catch {
-      say(`Something went wrong sending that. Please try again, or ${linkedin}.`, 'err');
+    } catch (err) {
+      const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      const detail = err && err.fromServer ? ` <span class="mono">(${esc(err.message)})</span>` : '';
+      say(`Something went wrong sending that${detail}. Please try again, or ${linkedin}.`, 'err');
     } finally {
       btn.disabled = false;
     }
