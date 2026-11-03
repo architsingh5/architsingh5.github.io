@@ -21,7 +21,7 @@ systems, and also ships real side projects.*
 | Skills | Languages, data, messaging, backend, core CS, AI tools |
 | Education & achievements | MANIT Bhopal B.Tech CSE (8.08), 1,000+ problems, JEE ranks, C++ workshop for 240 freshmen |
 | Certifications | Claude Code 101 (Anthropic), Mastering DS&A using C and C++ (Udemy, Feb 2021), linked to their credential pages |
-| Contact | Contact form (Formspree relays messages, so no email address is published), GitHub, LinkedIn, LeetCode, GeeksforGeeks, X, Instagram |
+| Contact | Contact form (Formspree form `xdeeyelp` relays messages, so no email address is published), GitHub, LinkedIn, LeetCode, GeeksforGeeks, X, Instagram |
 
 Left out on purpose: phone number and email address (it's a public page; the form relays messages instead), private repos (realtime-aggregator, etc.).
 
