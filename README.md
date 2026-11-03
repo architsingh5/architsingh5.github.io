@@ -19,7 +19,7 @@ Then open http://localhost:8000.
 | `index.html` | All content and sections |
 | `styles.css` | Design tokens (dark and light), layout, responsive rules |
 | `script.js` | Theme toggle, active-section nav, hero "event stream" canvas |
-| `assets/` | Favicon |
+| `assets/` | Favicon, portrait, social preview image, `icons.svg` sprite (Simple Icons, CC0; Lucide, ISC) |
 | `PLAN.md` | Content, design and deployment plan |
 
 ## Updating content

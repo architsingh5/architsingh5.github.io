@@ -199,10 +199,19 @@ b, strong { font-weight: 600; color: var(--text); }
 .earlier-list span { color: var(--muted); font-size: 14px; }
 
 /* Skills */
-.skills { margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
-.skills > div { padding: 18px 0; border-top: 1px solid var(--line); }
-.skills dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6px; }
-.skills dd { margin: 0; }
+.skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+.sk-group { padding: 20px 0; border-top: 1px solid var(--line); }
+.sk-group h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 10px; font-size: 14px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+  transition: border-color .2s, color .2s, transform .2s;
+}
+.chips .ic { width: 16px; height: 16px; flex: none; color: var(--muted); transition: color .2s; }
+.chips li:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); transform: translateY(-1px); }
+.chips li:hover .ic { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .chips li { transition: none; } .chips li:hover { transform: none; } }
 
 /* Education */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
