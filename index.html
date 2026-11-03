@@ -30,7 +30,7 @@
           <li><a href="#trade">How I build</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#leetcode">LeetCode</a></li>
+          <li><a href="#leetcode">Problem solving</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -69,7 +69,7 @@
         <div class="stat"><span class="num mono">54% / 64%</span><span class="lbl">less load on the primary host for ICE EU and NYMEX flow</span></div>
         <div class="stat"><span class="num mono">75%</span><span class="lbl">faster dashboard responses after query-path profiling</span></div>
         <div class="stat"><span class="num mono">7d → 1d</span><span class="lbl">turnaround for firmwide mapping-rule changes</span></div>
-        <div class="stat"><span class="num mono">800+</span><span class="lbl">LeetCode problems solved across DS&amp;A</span></div>
+        <div class="stat"><span class="num mono">1,000+</span><span class="lbl">DS&amp;A problems solved on LeetCode and GeeksforGeeks</span></div>
       </div>
     </section>
 
@@ -291,13 +291,16 @@
     <!-- LEETCODE (values below are a snapshot; script.js refreshes them from data/leetcode.json) -->
     <section class="section" id="leetcode">
       <div class="wrap">
-        <header class="sec-head lc-head">
-          <div>
-            <p class="kicker mono">04 / Problem solving</p>
-            <h2>LeetCode</h2>
-          </div>
-          <a class="btn" href="https://leetcode.com/u/architsingh5/" target="_blank" rel="noopener">View profile ↗</a>
+        <header class="sec-head">
+          <p class="kicker mono">04 / Problem solving</p>
+          <h2><span data-lc="combined">1,000+</span> problems solved</h2>
+          <p class="lede">Across LeetCode and GeeksforGeeks, mostly in C++, with plenty of dynamic programming and graphs.</p>
         </header>
+
+        <div class="plat-head">
+          <h3>LeetCode</h3>
+          <a class="btn sm" href="https://leetcode.com/u/architsingh5/" target="_blank" rel="noopener">View profile ↗</a>
+        </div>
 
         <div class="lc">
           <div class="lc-main card">
@@ -348,7 +351,50 @@
             </div>
           </div>
         </div>
-        <p class="lc-upd mono">Stats refresh weekly · last updated <time data-lc="updated" datetime="2026-11-03">3 Nov 2026</time></p>
+        <p class="lc-upd mono">LeetCode stats refresh weekly · last updated <time data-lc="updated" datetime="2026-11-03">3 Nov 2026</time></p>
+
+        <div class="plat-head gfg-head">
+          <h3>GeeksforGeeks</h3>
+          <a class="btn sm" href="https://www.geeksforgeeks.org/profile/architsingh5" target="_blank" rel="noopener">View profile ↗</a>
+        </div>
+        <div class="lc gfg">
+          <div class="lc-main card">
+            <div class="lc-hero">
+              <span class="lc-big">213</span>
+              <span class="lc-sub">problems solved<br><span class="mono">13 hard · 131 medium</span></span>
+            </div>
+            <div class="seg" role="img" aria-label="Solved by difficulty: Basic 12 (6%), Easy 57 (27%), Medium 131 (62%), Hard 13 (6%)">
+              <span class="seg-part d-basic" tabindex="0" style="flex-grow:12" data-tip="Basic · 12 solved · 6%"><span class="seg-lbl"></span></span>
+              <span class="seg-part d-easy" tabindex="0" style="flex-grow:57" data-tip="Easy · 57 solved · 27%"><span class="seg-lbl">27%</span></span>
+              <span class="seg-part d-med" tabindex="0" style="flex-grow:131" data-tip="Medium · 131 solved · 62%"><span class="seg-lbl">62%</span></span>
+              <span class="seg-part d-hard" tabindex="0" style="flex-grow:13" data-tip="Hard · 13 solved · 6%"><span class="seg-lbl"></span></span>
+            </div>
+            <table class="lc-table">
+              <caption class="sr-only">GeeksforGeeks problems solved by difficulty</caption>
+              <thead><tr><th scope="col">Difficulty</th><th scope="col">Solved</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><i class="sw d-basic"></i>Basic</th><td class="mono">12</td></tr>
+                <tr><th scope="row"><i class="sw d-easy"></i>Easy</th><td class="mono">57</td></tr>
+                <tr><th scope="row"><i class="sw d-med"></i>Medium</th><td class="mono">131</td></tr>
+                <tr><th scope="row"><i class="sw d-hard"></i>Hard</th><td class="mono">13</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="lc-side">
+            <div class="lc-tiles">
+              <div class="tile card"><span class="tile-lbl">Coding score</span><span class="tile-val">649</span></div>
+              <div class="tile card"><span class="tile-lbl">Institute rank · MANIT</span><span class="tile-val">1,002</span></div>
+            </div>
+            <div class="card lc-block">
+              <h3 class="lc-h mono">Notable solves</h3>
+              <ul class="topics mono">
+                <li>Alien Dictionary</li><li>Matrix Chain Multiplication</li><li>Boolean Parenthesization</li>
+                <li>Strongly Connected Components</li><li>Clone List with Random Pointer</li><li>Bellman-Ford</li>
+                <li>Floyd-Warshall</li><li>Histogram Max Area</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -390,7 +436,7 @@
             <h2>Along the way</h2>
           </header>
           <ul class="ach">
-            <li><span class="mono">800+</span> LeetCode problems solved</li>
+            <li><span class="mono">1,000+</span> problems solved on LeetCode and GeeksforGeeks</li>
             <li><span class="mono">AIR 8723</span> JEE Main 2019 · <span class="mono">AIR 8858</span> JEE Advanced 2019</li>
             <li><span class="mono">240</span> freshmen taught at a C++ workshop with Coding Club VISION</li>
           </ul>
@@ -409,6 +455,7 @@
           <li><a href="https://github.com/architsingh5" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://leetcode.com/u/architsingh5/" target="_blank" rel="noopener">LeetCode</a></li>
+          <li><a href="https://www.geeksforgeeks.org/profile/architsingh5" target="_blank" rel="noopener">GeeksforGeeks</a></li>
           <li><a href="https://x.com/ArchitSingh51" target="_blank" rel="noopener">X / Twitter</a></li>
           <li><a href="https://www.instagram.com/archit._.singh_/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>

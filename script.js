@@ -40,6 +40,8 @@
     .then(d => {
       const set = (k, v) => document.querySelectorAll(`[data-lc="${k}"]`).forEach(el => { el.textContent = v; });
       set('solved', fmt(d.solved));
+      // 213 = GeeksforGeeks solved (static; that profile has no public API)
+      set('combined', `${fmt(Math.floor((d.solved + 213) / 100) * 100)}+`);
       set('acceptanceLine', d.acceptance != null ? `${d.acceptance}% acceptance` : '');
       set('ranking', fmt(d.ranking));
       set('badges', fmt(d.badges));

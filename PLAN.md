@@ -17,10 +17,10 @@ systems, and also ships real side projects.*
 | Follow a trade | Scroll story: one trade moves through the kind of pipeline I build (exchange → 3 striped hosts → Kafka → hydration → OLTP + Snowflake → DB2 controls → reports). Each stage reveals one real achievement |
 | Experience | Goldman Sachs SDE1 (Jul 2023 – present), Intern (May – Jul 2022): the resume bullets grouped by theme |
 | Projects | **Featured:** Market Data MCP Server, Water Reminder (Android), Fuzzy Traffic Control, MouseTrail. **Earlier work:** CartWeb, Majestic Holidays, Form Buddy, Selfie Hand/Voice, Selenium Collection |
-| LeetCode | 818 solved (Easy/Medium/Hard split), global rank, badges, solved by language, most-solved topics. Refreshed weekly by a GitHub Action |
+| Problem solving | 1,000+ combined. **LeetCode:** 818 solved (Easy/Medium/Hard split), global rank, badges, solved by language, most-solved topics. Refreshed weekly by a GitHub Action. **GeeksforGeeks:** 213 solved, coding score 649, institute rank 1,002 (static, since GfG has no public API) |
 | Skills | Languages, data, messaging, backend, core CS, AI tools |
-| Education & achievements | MANIT Bhopal B.Tech CSE (8.08), 800+ LeetCode, JEE ranks, C++ workshop for 240 freshmen |
-| Contact | Email, GitHub, LinkedIn, LeetCode, X, Instagram |
+| Education & achievements | MANIT Bhopal B.Tech CSE (8.08), 1,000+ problems, JEE ranks, C++ workshop for 240 freshmen |
+| Contact | Email, GitHub, LinkedIn, LeetCode, GeeksforGeeks, X, Instagram |
 
 Left out on purpose: phone number (it's a public page), private repos (realtime-aggregator, etc.).
 
