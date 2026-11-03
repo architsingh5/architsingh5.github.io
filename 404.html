@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 · Archit Singh</title>
+  <meta name="description" content="This page doesn't exist. The message was dead-lettered.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0d0f12">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
+  <!-- absolute paths: GitHub Pages serves this file for missing URLs at any depth -->
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body class="nf-body">
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="Archit Singh, home">AS<span class="dot">.</span></a>
+    </div>
+  </header>
+
+  <main class="nf wrap">
+    <p class="kicker mono">Error 404 · Not found</p>
+    <h1>Message not found on any partition.</h1>
+    <p class="lede">It never reached a consumer, so it was moved to the dead-letter queue. That usually means a mistyped or outdated link.</p>
+
+    <svg class="dlq" viewBox="0 0 640 220" role="img" aria-labelledby="dlq-t">
+      <title id="dlq-t">Diagram: a message drops off three partitions into a dead-letter queue</title>
+      <g class="lanes">
+        <line x1="20" y1="40" x2="430" y2="40"/><line x1="20" y1="80" x2="430" y2="80"/><line x1="20" y1="120" x2="430" y2="120"/>
+      </g>
+      <g class="lane-lbl mono">
+        <text x="20" y="30">p0</text><text x="20" y="70">p1</text><text x="20" y="110">p2</text>
+      </g>
+      <g class="ok-msgs">
+        <rect class="flow f1" x="0" y="37.5" width="22" height="5" rx="2.5"/>
+        <rect class="flow f2" x="0" y="77.5" width="16" height="5" rx="2.5"/>
+        <rect class="flow f3" x="0" y="117.5" width="28" height="5" rx="2.5"/>
+      </g>
+      <path class="drop-path" d="M300,80 C380,80 430,110 450,160"/>
+      <g class="dlq-box">
+        <rect x="440" y="150" width="180" height="56" rx="10"/>
+        <text x="478" y="175" class="t">dead-letter queue</text>
+        <text x="478" y="193" class="sub mono">retries exhausted</text>
+      </g>
+      <g class="lost">
+        <circle class="halo" r="14"/><circle class="core" r="6"/>
+        <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0.55;1;1" keyTimes="0;0.45;0.75;1"
+          path="M20,80 L300,80 C380,80 430,110 450,160 C452,168 455,176 460,178"/>
+      </g>
+    </svg>
+
+    <dl class="msg mono" aria-label="Message details">
+      <div><dt>key</dt><dd id="nf-key">/</dd></div>
+      <div><dt>status</dt><dd>DEAD_LETTERED</dd></div>
+      <div><dt>reason</dt><dd>404 · no such route</dd></div>
+    </dl>
+
+    <div class="cta">
+      <a class="btn primary" href="/">Replay from offset 0</a>
+      <a class="btn" href="/#contact">Report it</a>
+    </div>
+  </main>
+
+  <script>
+    // Show the URL the visitor asked for as the message key (textContent, so it's never parsed as HTML).
+    (function () {
+      var k = document.getElementById('nf-key');
+      if (k) k.textContent = (location.pathname + location.search).slice(0, 120) || '/';
+      // SMIL ignores prefers-reduced-motion, so park the message in the DLQ instead of animating it.
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var lost = document.querySelector('.lost'), m = lost && lost.querySelector('animateMotion');
+        if (m) { m.remove(); lost.setAttribute('transform', 'translate(460 178)'); }
+      }
+    })();
+  </script>
+</body>
+</html>

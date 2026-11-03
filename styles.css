@@ -29,9 +29,9 @@
   --line: #e1ddd2;
   --text: #16181c;
   --muted: #5b616b;
-  --accent: #b45f00;
+  --accent: #9a5000;
   --accent-ink: #ffffff;
-  --accent-soft: rgba(180, 95, 0, 0.09);
+  --accent-soft: rgba(154, 80, 0, 0.09);
   --lane: rgba(0, 0, 0, 0.045);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   color-scheme: light;
@@ -45,9 +45,9 @@
     --line: #e1ddd2;
     --text: #16181c;
     --muted: #5b616b;
-    --accent: #b45f00;
+    --accent: #9a5000;
     --accent-ink: #ffffff;
-    --accent-soft: rgba(180, 95, 0, 0.09);
+    --accent-soft: rgba(154, 80, 0, 0.09);
     --lane: rgba(0, 0, 0, 0.045);
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     color-scheme: light;
@@ -322,17 +322,18 @@ b, strong { font-weight: 600; color: var(--text); }
 .stage-card { position: relative; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: 18px 18px 14px; box-shadow: var(--shadow); }
 .pipe { display: block; width: 100%; height: auto; max-height: calc(100vh - 170px); overflow: visible; }
 
-.step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 24px 0; opacity: .35; transition: opacity .4s; }
+.step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 24px 0 24px 22px; border-left: 2px solid var(--line); transition: border-color .4s; }
 .step:first-child { min-height: 60vh; justify-content: flex-start; padding-top: 8vh; }
 .step:last-child { min-height: 70vh; }
-.step.is-active { opacity: 1; }
+.step.is-active { border-left-color: var(--accent); }
+.trade.js .step:not(.is-active) h3, .trade.js .step:not(.is-active) .step-metric .num { color: var(--muted); }
+.step h3, .step-metric .num { transition: color .4s; }
 .step-n { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
 .step h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 600; letter-spacing: -0.02em; }
 .step > p:not(.step-n):not(.step-metric) { color: var(--muted); font-size: 16.5px; max-width: 46ch; }
 .step-metric { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); max-width: 46ch; }
 .step-metric .num { font-size: clamp(26px, 3.4vw, 36px); color: var(--accent); letter-spacing: -0.02em; }
 .step-metric .lbl { color: var(--muted); font-size: 14px; }
-.no-js .step, .trade:not(.js) .step { opacity: 1; }
 
 /* diagram */
 .pipe .edges path { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 3 5; transition: stroke .5s, stroke-dasharray .5s; }
@@ -368,7 +369,7 @@ b, strong { font-weight: 600; color: var(--text); }
 
 @media (prefers-reduced-motion: reduce) {
   .trade-dot .halo { animation: none; opacity: .5; }
-  .step, .pipe [data-s], .pipe .edges path, .pipe .nodes rect { transition: none; }
+  .step, .step h3, .step-metric .num, .pipe [data-s], .pipe .edges path, .pipe .nodes rect { transition: none; }
 }
 
 @media (max-width: 900px) {
@@ -430,7 +431,7 @@ b, strong { font-weight: 600; color: var(--text); }
 .contact-form { gap: 16px; padding: clamp(20px, 3vw, 28px); }
 .contact-form:hover { transform: none; border-color: var(--line); }
 .contact-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 500; color: var(--muted); }
-.contact-form .opt { font-weight: 400; opacity: .8; }
+.contact-form .opt { font-weight: 400; }
 .contact-form input, .contact-form textarea {
   font: inherit; font-size: 15px; color: var(--text); background: var(--bg); border: 1px solid var(--line);
   border-radius: 8px; padding: 11px 12px; width: 100%; transition: border-color .15s;
@@ -455,3 +456,57 @@ b, strong { font-weight: 600; color: var(--text); }
 .edu-logo img { width: 100%; height: 100%; object-fit: contain; }
 @media (max-width: 420px) { .edu { align-items: flex-start; } .edu-logo { width: 64px; height: 64px; padding: 8px; } }
 .team { margin-top: 4px; font-size: 14px; color: var(--accent); font-weight: 500; }
+
+/* ---------- 404 page ---------- */
+.nf-body { min-height: 100vh; display: flex; flex-direction: column; }
+.nf { flex: 1; width: 100%; padding-top: clamp(48px, 10vh, 120px); padding-bottom: 64px; }
+.nf h1 { font-size: clamp(32px, 6vw, 60px); font-weight: 700; letter-spacing: -0.03em; max-width: 16ch; margin-top: 10px; }
+.nf .lede { max-width: 56ch; }
+.dlq { display: block; width: 100%; max-width: 640px; height: auto; margin: 36px 0 12px; overflow: visible; }
+.dlq .lanes line { stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 3 5; }
+.dlq .lane-lbl text { font-size: 11px; fill: var(--muted); }
+.dlq .flow { fill: var(--muted); opacity: .5; animation: nf-flow linear infinite; }
+.dlq .f1 { animation-duration: 3.2s; } .dlq .f2 { animation-duration: 4.1s; animation-delay: -1.5s; } .dlq .f3 { animation-duration: 3.6s; animation-delay: -2.4s; }
+@keyframes nf-flow { from { transform: translateX(20px); } to { transform: translateX(400px); } }
+.dlq .drop-path { fill: none; stroke: color-mix(in srgb, var(--accent) 45%, transparent); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.dlq .dlq-box rect { fill: color-mix(in srgb, var(--accent) 7%, var(--surface)); stroke: var(--accent); stroke-width: 1.5; }
+.dlq .dlq-box .t { font: 600 15px var(--f-display); fill: var(--text); }
+.dlq .dlq-box .sub { font-size: 10.5px; fill: var(--muted); }
+.dlq .lost .core { fill: var(--text); stroke: var(--accent); stroke-width: 3; }
+.dlq .lost .halo { fill: color-mix(in srgb, var(--accent) 25%, transparent); }
+.msg { display: grid; gap: 6px; margin: 8px 0 32px; font-size: 13px; }
+.msg div { display: flex; gap: 16px; }
+.msg dt { width: 60px; color: var(--muted); }
+.msg dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { .dlq .flow { animation: none; } }
+
+/* ---------- Contact receipt ("printed" confirmation) ---------- */
+.receipt-slot { overflow: hidden; padding-bottom: 10px; }
+.receipt {
+  position: relative; margin-top: 4px; padding: 16px 18px 22px; font-size: 12.5px; line-height: 1.75; color: var(--text);
+  background: var(--bg); border: 1px dashed color-mix(in srgb, var(--accent) 55%, var(--line)); border-bottom: 0; border-radius: 8px 8px 0 0;
+  animation: print 1.1s steps(9, end) both;
+}
+/* torn, zig-zag bottom edge */
+.receipt::after {
+  content: ""; position: absolute; left: -1px; right: -1px; bottom: -8px; height: 8px;
+  background: linear-gradient(-45deg, transparent 6px, var(--bg) 0) 0 0 / 12px 8px repeat-x,
+              linear-gradient(45deg, transparent 6px, var(--bg) 0) 0 0 / 12px 8px repeat-x;
+}
+.receipt .r-head { display: flex; justify-content: space-between; color: var(--accent); font-weight: 500; letter-spacing: .06em; margin-bottom: 6px; }
+.receipt .r-row { display: flex; justify-content: space-between; gap: 16px; }
+.receipt .r-row span:first-child { color: var(--muted); }
+.receipt .r-row span:last-child { text-align: right; overflow-wrap: anywhere; }
+.receipt .r-ok { color: var(--d-easy); font-weight: 500; }
+.receipt .r-foot { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); color: var(--muted); text-align: center; }
+@keyframes print { from { clip-path: inset(0 0 100% 0); transform: translateY(-12px); } to { clip-path: inset(0 0 -10px 0); transform: none; } }
+@media (prefers-reduced-motion: reduce) { .receipt { animation: none; } }
+
+/* ---------- Logo easter egg: the dot fires a message along the nav ---------- */
+.nav-inner { position: relative; }
+.nav .shot { position: absolute; left: 0; bottom: -1px; width: 26px; height: 2px; border-radius: 2px; background: var(--accent); opacity: 0; pointer-events: none; box-shadow: 0 0 10px var(--accent); }
+.nav.fire .shot { animation: shot 1s cubic-bezier(.45, 0, .2, 1) forwards; }
+@keyframes shot { 0% { opacity: 1; transform: translateX(var(--from, 30px)) scaleX(.4); } 25% { transform: translateX(calc(var(--from, 30px) + 60px)) scaleX(1.6); } 100% { opacity: 0; transform: translateX(var(--to, 900px)) scaleX(1); } }
+.brand .dot { display: inline-block; transition: transform .2s; }
+.nav.fire .brand .dot { animation: recoil .45s ease-out; }
+@keyframes recoil { 0% { transform: scale(1); } 30% { transform: scale(1.8); } 100% { transform: scale(1); } }

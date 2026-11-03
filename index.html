@@ -17,7 +17,8 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="styles.css">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -324,18 +325,18 @@
             </div>
 
             <div class="seg" role="img" data-lc-aria aria-label="Solved by difficulty: Easy 300 (37%), Medium 443 (54%), Hard 75 (9%)">
-              <span class="seg-part d-easy" tabindex="0" data-lc-seg="Easy" style="flex-grow:300" data-tip="Easy · 300 solved · 37%"><span class="seg-lbl">37%</span></span>
-              <span class="seg-part d-med" tabindex="0" data-lc-seg="Medium" style="flex-grow:443" data-tip="Medium · 443 solved · 54%"><span class="seg-lbl">54%</span></span>
-              <span class="seg-part d-hard" tabindex="0" data-lc-seg="Hard" style="flex-grow:75" data-tip="Hard · 75 solved · 9%"><span class="seg-lbl">9%</span></span>
+              <span class="seg-part d-easy" tabindex="0" data-lc-seg="Easy" style="flex-grow:300" data-tip="Easy · 300 solved · 37%"></span>
+              <span class="seg-part d-med" tabindex="0" data-lc-seg="Medium" style="flex-grow:443" data-tip="Medium · 443 solved · 54%"></span>
+              <span class="seg-part d-hard" tabindex="0" data-lc-seg="Hard" style="flex-grow:75" data-tip="Hard · 75 solved · 9%"></span>
             </div>
 
             <table class="lc-table">
               <caption class="sr-only">Problems solved by difficulty</caption>
-              <thead><tr><th scope="col">Difficulty</th><th scope="col">Solved</th><th scope="col">Available</th></tr></thead>
+              <thead><tr><th scope="col">Difficulty</th><th scope="col">Solved</th><th scope="col">Share</th><th scope="col">Available</th></tr></thead>
               <tbody>
-                <tr><th scope="row"><i class="sw d-easy"></i>Easy</th><td class="mono" data-lc="Easy.solved">300</td><td class="mono" data-lc="Easy.total">975</td></tr>
-                <tr><th scope="row"><i class="sw d-med"></i>Medium</th><td class="mono" data-lc="Medium.solved">443</td><td class="mono" data-lc="Medium.total">2,138</td></tr>
-                <tr><th scope="row"><i class="sw d-hard"></i>Hard</th><td class="mono" data-lc="Hard.solved">75</td><td class="mono" data-lc="Hard.total">987</td></tr>
+                <tr><th scope="row"><i class="sw d-easy"></i>Easy</th><td class="mono" data-lc="Easy.solved">300</td><td class="mono" data-lc="Easy.share">37%</td><td class="mono" data-lc="Easy.total">975</td></tr>
+                <tr><th scope="row"><i class="sw d-med"></i>Medium</th><td class="mono" data-lc="Medium.solved">443</td><td class="mono" data-lc="Medium.share">54%</td><td class="mono" data-lc="Medium.total">2,138</td></tr>
+                <tr><th scope="row"><i class="sw d-hard"></i>Hard</th><td class="mono" data-lc="Hard.solved">75</td><td class="mono" data-lc="Hard.share">9%</td><td class="mono" data-lc="Hard.total">987</td></tr>
               </tbody>
             </table>
           </div>
@@ -378,19 +379,19 @@
               <span class="lc-sub">problems solved<br><span class="mono">13 hard · 131 medium</span></span>
             </div>
             <div class="seg" role="img" aria-label="Solved by difficulty: Basic 12 (6%), Easy 57 (27%), Medium 131 (62%), Hard 13 (6%)">
-              <span class="seg-part d-basic" tabindex="0" style="flex-grow:12" data-tip="Basic · 12 solved · 6%"><span class="seg-lbl"></span></span>
-              <span class="seg-part d-easy" tabindex="0" style="flex-grow:57" data-tip="Easy · 57 solved · 27%"><span class="seg-lbl">27%</span></span>
-              <span class="seg-part d-med" tabindex="0" style="flex-grow:131" data-tip="Medium · 131 solved · 62%"><span class="seg-lbl">62%</span></span>
-              <span class="seg-part d-hard" tabindex="0" style="flex-grow:13" data-tip="Hard · 13 solved · 6%"><span class="seg-lbl"></span></span>
+              <span class="seg-part d-basic" tabindex="0" style="flex-grow:12" data-tip="Basic · 12 solved · 6%"></span>
+              <span class="seg-part d-easy" tabindex="0" style="flex-grow:57" data-tip="Easy · 57 solved · 27%"></span>
+              <span class="seg-part d-med" tabindex="0" style="flex-grow:131" data-tip="Medium · 131 solved · 62%"></span>
+              <span class="seg-part d-hard" tabindex="0" style="flex-grow:13" data-tip="Hard · 13 solved · 6%"></span>
             </div>
             <table class="lc-table">
               <caption class="sr-only">GeeksforGeeks problems solved by difficulty</caption>
-              <thead><tr><th scope="col">Difficulty</th><th scope="col">Solved</th></tr></thead>
+              <thead><tr><th scope="col">Difficulty</th><th scope="col">Solved</th><th scope="col">Share</th></tr></thead>
               <tbody>
-                <tr><th scope="row"><i class="sw d-basic"></i>Basic</th><td class="mono">12</td></tr>
-                <tr><th scope="row"><i class="sw d-easy"></i>Easy</th><td class="mono">57</td></tr>
-                <tr><th scope="row"><i class="sw d-med"></i>Medium</th><td class="mono">131</td></tr>
-                <tr><th scope="row"><i class="sw d-hard"></i>Hard</th><td class="mono">13</td></tr>
+                <tr><th scope="row"><i class="sw d-basic"></i>Basic</th><td class="mono">12</td><td class="mono">6%</td></tr>
+                <tr><th scope="row"><i class="sw d-easy"></i>Easy</th><td class="mono">57</td><td class="mono">27%</td></tr>
+                <tr><th scope="row"><i class="sw d-med"></i>Medium</th><td class="mono">131</td><td class="mono">62%</td></tr>
+                <tr><th scope="row"><i class="sw d-hard"></i>Hard</th><td class="mono">13</td><td class="mono">6%</td></tr>
               </tbody>
             </table>
           </div>

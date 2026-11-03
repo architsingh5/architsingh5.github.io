@@ -51,13 +51,12 @@
         const pct = Math.round((x.solved / total) * 100);
         set(`${x.name}.solved`, fmt(x.solved));
         set(`${x.name}.total`, fmt(x.total));
+        set(`${x.name}.share`, `${pct}%`);
         const seg = document.querySelector(`[data-lc-seg="${x.name}"]`);
         if (seg) {
           seg.style.flexGrow = x.solved;
           seg.style.display = x.solved ? '' : 'none';
           seg.dataset.tip = `${x.name} · ${fmt(x.solved)} solved · ${pct}%`;
-          const lbl = seg.querySelector('.seg-lbl');
-          if (lbl) lbl.textContent = pct >= 7 ? `${pct}%` : '';
         }
         parts.push(`${x.name} ${fmt(x.solved)} (${pct}%)`);
       });
@@ -327,6 +326,31 @@
   const linkedin = '<a href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">message me on LinkedIn</a>';
   const say = (msg, cls) => { status.className = `form-status ${cls || ''}`; status.innerHTML = msg; };
 
+  // A small "trade confirmation" that prints out after a successful send (decorative; the status line above is announced).
+  function printReceipt(company) {
+    const old = form.querySelector('.receipt-slot'); if (old) old.remove();
+    const now = new Date();
+    const id = 'MSG-' + Math.random().toString(36).slice(2, 7).toUpperCase();
+    const offset = Math.floor(now.getTime() / 1000) % 100000;
+    const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const rows = [['id', id], ['topic', 'portfolio.contact'], ['partition', 'p0'], ['offset', String(offset)],
+      ...(company ? [['from', company.slice(0, 40)]] : []), ['acked at', time]];
+    const slot = document.createElement('div'); slot.className = 'receipt-slot'; slot.setAttribute('aria-hidden', 'true');
+    const r = document.createElement('div'); r.className = 'receipt mono';
+    const head = document.createElement('div'); head.className = 'r-head';
+    head.innerHTML = '<span>ACK</span><span class="r-ok">● DELIVERED</span>';
+    r.appendChild(head);
+    rows.forEach(([k, v]) => {
+      const row = document.createElement('div'); row.className = 'r-row';
+      const a = document.createElement('span'); a.textContent = k;
+      const b = document.createElement('span'); b.textContent = v;   // textContent: user input never becomes HTML
+      row.append(a, b); r.appendChild(row);
+    });
+    const foot = document.createElement('div'); foot.className = 'r-foot'; foot.textContent = 'consumer: archit.singh · lag 0';
+    r.appendChild(foot);
+    slot.appendChild(r); status.after(slot);
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let bad = null;
@@ -341,6 +365,7 @@
       return;
     }
     if (!id) { say(`The form isn't connected yet. Please ${linkedin} for now.`, 'err'); return; }
+    const prev = form.querySelector('.receipt-slot'); if (prev) prev.remove();
 
     btn.disabled = true; say('Sending…');
     try {
@@ -357,8 +382,10 @@
         } catch {}
         const err = new Error(why); err.fromServer = true; throw err;
       }
+      const company = (form.company.value || '').trim();
       form.reset();
-      say('Thanks! Your message is on its way, and I’ll get back to you soon.', 'ok');
+      say('Delivered. Thanks! I’ll get back to you soon.', 'ok');
+      printReceipt(company);
     } catch (err) {
       const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
       const detail = err && err.fromServer ? ` <span class="mono">(${esc(err.message)})</span>` : '';
@@ -367,4 +394,24 @@
       btn.disabled = false;
     }
   });
+})();
+
+/* ---------- Logo easter egg: hovering the logo fires a message along the nav ---------- */
+(() => {
+  const nav = document.querySelector('.nav'), brand = nav && nav.querySelector('.brand'), dot = brand && brand.querySelector('.dot');
+  if (!nav || !brand || !dot || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const inner = nav.querySelector('.nav-inner');
+  const shot = document.createElement('span'); shot.className = 'shot'; shot.setAttribute('aria-hidden', 'true');
+  inner.appendChild(shot);
+  let busy = false;
+  const fire = () => {
+    if (busy) return; busy = true;
+    const ir = inner.getBoundingClientRect(), dr = dot.getBoundingClientRect();
+    shot.style.setProperty('--from', `${dr.left - ir.left}px`);
+    shot.style.setProperty('--to', `${ir.width - 20}px`);
+    nav.classList.add('fire');
+    setTimeout(() => { nav.classList.remove('fire'); busy = false; }, 1100);
+  };
+  brand.addEventListener('mouseenter', fire);
+  brand.addEventListener('focus', fire);
 })();
