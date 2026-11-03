@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Archit Singh · Software Engineer</title>
+  <meta name="description" content="Archit Singh: software engineer at Goldman Sachs building high-throughput Java services and Kafka pipelines across the trade lifecycle.">
+  <meta name="theme-color" content="#0d0f12">
+  <meta property="og:title" content="Archit Singh · Software Engineer">
+  <meta property="og:description" content="High-throughput Java and Kafka systems across the trade lifecycle: orders, executions, clearing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://architsingh5.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Archit Singh, home">AS<span class="dot">.</span></a>
+      <nav aria-label="Sections">
+        <ul class="nav-links">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <canvas class="stream" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <p class="eyebrow mono"><span class="live"></span><span>Software Engineer · Goldman Sachs · Bengaluru</span></p>
+        <h1>Archit Singh</h1>
+        <p class="lede">I build high-throughput <strong>Java</strong> services and <strong>Kafka</strong> pipelines
+          that carry trades through their whole lifecycle: orders, executions and clearing. The work is measured in throughput,
+          latency and reliability, on systems used across the firm.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:architsingh5@gmail.com">Get in touch</a>
+          <a class="btn" href="https://github.com/architsingh5" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <ul class="lanes mono" aria-hidden="true">
+          <li>p0 · orders</li><li>p1 · executions</li><li>p2 · clearing</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="impact" aria-label="Impact highlights">
+      <div class="wrap impact-grid">
+        <div class="stat"><span class="num mono">54% / 64%</span><span class="lbl">less load on the primary host for ICE EU and NYMEX flow</span></div>
+        <div class="stat"><span class="num mono">75%</span><span class="lbl">faster dashboard responses after query-path profiling</span></div>
+        <div class="stat"><span class="num mono">7d → 1d</span><span class="lbl">turnaround for firmwide mapping-rule changes</span></div>
+        <div class="stat"><span class="num mono">800+</span><span class="lbl">LeetCode problems solved across DS&amp;A</span></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker mono">01 / Experience</p>
+          <h2>Where I work</h2>
+        </header>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>Goldman Sachs</h3>
+            <p class="role">Software Engineer, Analyst (SDE1)</p>
+            <p class="when mono">Jul 2023 – Present · Bengaluru</p>
+          </div>
+          <div class="job-body">
+            <div class="theme">
+              <h4 class="mono">Throughput &amp; scale</h4>
+              <ul>
+                <li>Scaled exchange trade ingestion by striping <b>ICE EU</b> and <b>NYMEX</b> flow across three load-balanced hosts, cutting primary-host load by <b>54%</b> and <b>64%</b> and keeping throughput steady at peak volumes.</li>
+                <li>Profiled and optimized query execution paths, cutting dashboard response time by <b>75%</b>. Added pre-rollout checks that assess how rule changes affect downstream systems.</li>
+              </ul>
+            </div>
+            <div class="theme">
+              <h4 class="mono">Data pipelines</h4>
+              <ul>
+                <li>Designed and built Java/Kafka <b>Data Hydration</b> pipelines that publish trade data to a GCP-backed OLTP store and a <b>Snowflake</b> lakehouse (OLAP), with DB2-based controls and reconciliation and a <b>transactional outbox</b> for reliable event delivery between services.</li>
+                <li>Built a broker-reporting service from scratch for the Korean and South African markets: it consumes real-time trades over <b>TIBCO RV</b>, reconciles executions against client orders and generates interval reports automatically.</li>
+              </ul>
+            </div>
+            <div class="theme">
+              <h4 class="mono">Platform &amp; architecture</h4>
+              <ul>
+                <li>Re-architected the firmwide mapping-rule infrastructure from static definitions to a database-driven design, cutting rule-change turnaround from <b>7 days to 1</b>.</li>
+                <li>Built a balance-sheet mapping engine with REST APIs that consolidates data from several upstream sources and generates reports automatically, cutting end-to-end runtime by <b>12%</b>.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>Goldman Sachs</h3>
+            <p class="role">Software Engineering Intern</p>
+            <p class="when mono">May 2022 – Jul 2022</p>
+          </div>
+          <div class="job-body">
+            <ul>
+              <li>Built an FX roll performance calculator for a cash-management platform: <b>Spark/SQL</b> pipelines that detect discrepancies in projected FX roll trades, integrated with downstream systems over <b>Kafka</b>.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker mono">02 / Projects</p>
+          <h2>Things I've built</h2>
+        </header>
+
+        <div class="projects">
+          <article class="card feature">
+            <div class="card-top">
+              <h3>Market Data MCP Server</h3>
+              <a class="ext" href="https://github.com/architsingh5/mcp-market-data-server" target="_blank" rel="noopener" aria-label="Market Data MCP Server on GitHub">↗</a>
+            </div>
+            <p>An MCP server that lets Claude, VS Code or any MCP client answer plain-English questions about two years of
+              Indian equity end-of-day data: tickers, closes, drawdowns, volatility comparisons.</p>
+            <p class="figs mono">1.06M daily prices · 2,816 instruments · deployed on Render · CI</p>
+            <ul class="tags mono"><li>Python</li><li>MCP</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>Prometheus</li></ul>
+          </article>
+
+          <article class="card feature">
+            <div class="card-top">
+              <h3>Water Reminder</h3>
+              <a class="ext" href="https://github.com/architsingh5/Water-Reminder" target="_blank" rel="noopener" aria-label="Water Reminder on GitHub">↗</a>
+            </div>
+            <p>A native Android app with confirmation-based scheduling: reminders only during awake hours, snooze and skip, streaks,
+              a home-screen widget, alarm-style alerts and reminders that are re-armed after a reboot or a timezone change.</p>
+            <p class="figs mono">Material You · weekly analytics · unit-tested scheduling rules</p>
+            <ul class="tags mono"><li>Kotlin</li><li>Jetpack Compose</li><li>AlarmManager</li><li>DataStore</li></ul>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Fuzzy Traffic Control</h3>
+              <a class="ext" href="https://github.com/architsingh5/fuzzy-traffic" target="_blank" rel="noopener" aria-label="Fuzzy Traffic Control on GitHub">↗</a>
+            </div>
+            <p>Fuzzy-logic traffic lights for a four-way junction, simulated in SUMO and benchmarked against a fixed-time
+              controller on waiting time, CO₂ and fuel. Golden-value tests and a daily pip-audit run in CI.</p>
+            <ul class="tags mono"><li>Python</li><li>SUMO</li><li>Fuzzy logic</li><li>pytest</li></ul>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>MouseTrail</h3>
+              <a class="ext" href="https://github.com/architsingh5/MouseTrail" target="_blank" rel="noopener" aria-label="MouseTrail on GitHub">↗</a>
+            </div>
+            <p>A Windows overlay that draws glowing light trails behind the cursor while clicks pass through to the desktop. It runs from the system tray,
+              with rainbow, random and fixed color modes and live-tunable trail settings. Shipped with an installer.</p>
+            <ul class="tags mono"><li>Electron</li><li>JavaScript</li><li>Canvas</li></ul>
+          </article>
+        </div>
+
+        <details class="earlier">
+          <summary class="mono">Earlier work (2020 – 2022)</summary>
+          <ul class="earlier-list">
+            <li><a href="https://github.com/architsingh5/selfie-Hand-voice-recognition" target="_blank" rel="noopener">Selfie with Hand / Voice</a><span>Hands-free capture with an OpenCV palm detector or a voice command · Python</span></li>
+            <li><a href="https://github.com/architsingh5/Selenium-Collection" target="_blank" rel="noopener">Selenium Collection</a><span>Scripts that automate bill payments, form autofill and speed-post tracking · Python</span></li>
+            <li><a href="https://artistastationeries.netlify.app/" target="_blank" rel="noopener">CartWeb</a><span>Responsive storefront template for a stationery brand · HTML/CSS/JS</span></li>
+            <li><a href="https://majesticholidays.netlify.app" target="_blank" rel="noopener">Majestic Holidays</a><span>Static tourism site · Bootstrap</span></li>
+            <li><a href="https://formbuddy5.netlify.app/" target="_blank" rel="noopener">Form Buddy</a><span>Regex-driven form validation · JavaScript</span></li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker mono">03 / Skills</p>
+          <h2>Toolbox</h2>
+        </header>
+        <dl class="skills">
+          <div><dt class="mono">Languages</dt><dd>Java · Python · C++ · SQL · Kotlin</dd></div>
+          <div><dt class="mono">Messaging &amp; distributed</dt><dd>Apache Kafka · Apache Spark · TIBCO EMS · TIBCO Rendezvous</dd></div>
+          <div><dt class="mono">Data</dt><dd>Snowflake · IBM DB2 · Sybase</dd></div>
+          <div><dt class="mono">Backend</dt><dd>Microservices · REST APIs · Multithreading &amp; concurrency · Production support &amp; RCA · Linux · Shell</dd></div>
+          <div><dt class="mono">Core CS</dt><dd>Data structures &amp; algorithms · OOD · Operating systems · Networks · DBMS</dd></div>
+          <div><dt class="mono">AI tools</dt><dd>Claude Code · GitHub Copilot · MCP</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="wrap two-col">
+        <div>
+          <header class="sec-head">
+            <p class="kicker mono">04 / Education</p>
+            <h2>Background</h2>
+          </header>
+          <div class="edu">
+            <h3>Maulana Azad National Institute of Technology, Bhopal</h3>
+            <p>B.Tech, Computer Science and Engineering</p>
+            <p class="when mono">2019 – 2023 · CGPA 8.08 / 10</p>
+          </div>
+        </div>
+        <div>
+          <header class="sec-head">
+            <p class="kicker mono">05 / Achievements</p>
+            <h2>Along the way</h2>
+          </header>
+          <ul class="ach">
+            <li><span class="mono">800+</span> LeetCode problems solved</li>
+            <li><span class="mono">AIR 8723</span> JEE Main 2019 · <span class="mono">AIR 8858</span> JEE Advanced 2019</li>
+            <li><span class="mono">240</span> freshmen taught at a C++ workshop with Coding Club VISION</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <p class="kicker mono">06 / Contact</p>
+        <h2>Let's talk.</h2>
+        <p class="lede">Open to conversations about backend, distributed systems and low-latency engineering roles.</p>
+        <a class="mail mono" href="mailto:architsingh5@gmail.com">architsingh5@gmail.com</a>
+        <ul class="socials">
+          <li><a href="https://github.com/architsingh5" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/ArchitSingh51" target="_blank" rel="noopener">X / Twitter</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap mono">© <span id="year">2026</span> Archit Singh · Plain HTML, CSS and JS, hosted on GitHub Pages</div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
