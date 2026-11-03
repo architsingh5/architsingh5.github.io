@@ -20,6 +20,7 @@ systems, and also ships real side projects.*
 | Problem solving | 1,000+ combined. **LeetCode:** 818 solved (Easy/Medium/Hard split), global rank, badges, solved by language, most-solved topics. Refreshed weekly by a GitHub Action. **GeeksforGeeks:** 213 solved, coding score 649, institute rank 1,002 (static, since GfG has no public API) |
 | Skills | Languages, data, messaging, backend, core CS, AI tools |
 | Education & achievements | MANIT Bhopal B.Tech CSE (8.08), 1,000+ problems, JEE ranks, C++ workshop for 240 freshmen |
+| Certifications | Claude Code 101 (Anthropic), Mastering DS&A using C and C++ (Udemy, Feb 2021), linked to their credential pages |
 | Contact | Email, GitHub, LinkedIn, LeetCode, GeeksforGeeks, X, Instagram |
 
 Left out on purpose: phone number (it's a public page), private repos (realtime-aggregator, etc.).
