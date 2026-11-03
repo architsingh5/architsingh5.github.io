@@ -58,7 +58,7 @@
           that carry trades through their whole lifecycle: orders, executions and clearing. The work is measured in throughput,
           latency and reliability, on systems used across the firm.</p>
         <div class="cta">
-          <a class="btn primary" href="mailto:architsingh5@gmail.com">Get in touch</a>
+          <a class="btn primary" href="#contact">Get in touch</a>
           <a class="btn" href="https://github.com/architsingh5" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">LinkedIn</a>
         </div>
@@ -478,10 +478,11 @@
     <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="wrap">
+        <div class="contact-grid">
+        <div>
         <p class="kicker mono">08 / Contact</p>
         <h2>Let's talk.</h2>
-        <p class="lede">Open to conversations about backend, distributed systems and low-latency engineering roles.</p>
-        <a class="mail mono" href="mailto:architsingh5@gmail.com">architsingh5@gmail.com</a>
+        <p class="lede">Open to conversations about backend, distributed systems and low-latency engineering roles. Send a message and it comes straight to my inbox. I usually reply within a couple of days.</p>
         <ul class="socials">
           <li><a href="https://github.com/architsingh5" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -490,6 +491,24 @@
           <li><a href="https://x.com/ArchitSingh51" target="_blank" rel="noopener">X / Twitter</a></li>
           <li><a href="https://www.instagram.com/archit._.singh_/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
+        </div>
+
+        <!-- Messages are relayed by Formspree, so no email address is published on the page.
+             To connect: put the form ID (formspree.io/f/<ID>) in data-form-id below. -->
+        <form class="contact-form card" data-form-id="" method="POST" novalidate>
+          <div class="row2">
+            <label>Name<input name="name" type="text" autocomplete="name" required maxlength="100"></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+          </div>
+          <label>Company <span class="opt">(optional)</span><input name="company" type="text" autocomplete="organization" maxlength="120"></label>
+          <label>Message<textarea name="message" rows="5" required minlength="20" maxlength="4000" placeholder="Role, team, and anything else useful"></textarea></label>
+          <!-- spam trap: real visitors never see or fill this -->
+          <label class="hp" aria-hidden="true">Leave this empty<input name="_gotcha" type="text" tabindex="-1" autocomplete="off"></label>
+          <input type="hidden" name="_subject" value="Portfolio: new message">
+          <button class="btn primary" type="submit">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        </div>
       </div>
     </section>
   </main>

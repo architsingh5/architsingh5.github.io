@@ -316,3 +316,44 @@
 
   update();
 })();
+
+/* ---------- Contact form (Formspree relay; no address on the page) ---------- */
+(() => {
+  const form = document.querySelector('.contact-form');
+  if (!form) return;
+  const status = form.querySelector('.form-status');
+  const btn = form.querySelector('button[type="submit"]');
+  const id = (form.dataset.formId || '').trim();
+  const linkedin = '<a href="https://www.linkedin.com/in/architsingh5" target="_blank" rel="noopener">message me on LinkedIn</a>';
+  const say = (msg, cls) => { status.className = `form-status ${cls || ''}`; status.innerHTML = msg; };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let bad = null;
+    form.querySelectorAll('input:not([name="_gotcha"]), textarea').forEach(el => {
+      const ok = el.checkValidity();
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      if (!ok && !bad) bad = el;
+    });
+    if (bad) {
+      say(bad.name === 'message' ? 'Please write a little more (at least 20 characters).' : 'Please fill in your name and a valid email.', 'err');
+      bad.focus();
+      return;
+    }
+    if (!id) { say(`The form isn't connected yet. Please ${linkedin} for now.`, 'err'); return; }
+
+    btn.disabled = true; say('Sending…');
+    try {
+      const res = await fetch(`https://formspree.io/f/${encodeURIComponent(id)}`, {
+        method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      say('Thanks! Your message is on its way, and I’ll get back to you soon.', 'ok');
+    } catch {
+      say(`Something went wrong sending that. Please try again, or ${linkedin}.`, 'err');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();

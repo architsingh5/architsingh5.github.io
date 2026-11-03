@@ -12,7 +12,7 @@ systems, and also ships real side projects.*
 ## Content (from resume, Oct 2026, and public GitHub)
 | Section | Content |
 |---|---|
-| Hero | Name, one-line positioning, location, CTA buttons (Email, GitHub, LinkedIn) |
+| Hero | Name, one-line positioning, location, CTA buttons (Get in touch → contact form, GitHub, LinkedIn) |
 | Impact strip | 54% / 64% primary-host load cut · 75% faster dashboards · 7 → 1 day rule changes · 12% runtime cut |
 | Follow a trade | Scroll story: one trade moves through the kind of pipeline I build (exchange → 3 striped hosts → Kafka → hydration → OLTP + Snowflake → DB2 controls → reports). Each stage reveals one real achievement |
 | Experience | Goldman Sachs SDE1 (Jul 2023 – present), Intern (May – Jul 2022): the resume bullets grouped by theme |
@@ -21,9 +21,9 @@ systems, and also ships real side projects.*
 | Skills | Languages, data, messaging, backend, core CS, AI tools |
 | Education & achievements | MANIT Bhopal B.Tech CSE (8.08), 1,000+ problems, JEE ranks, C++ workshop for 240 freshmen |
 | Certifications | Claude Code 101 (Anthropic), Mastering DS&A using C and C++ (Udemy, Feb 2021), linked to their credential pages |
-| Contact | Email, GitHub, LinkedIn, LeetCode, GeeksforGeeks, X, Instagram |
+| Contact | Contact form (Formspree relays messages, so no email address is published), GitHub, LinkedIn, LeetCode, GeeksforGeeks, X, Instagram |
 
-Left out on purpose: phone number (it's a public page), private repos (realtime-aggregator, etc.).
+Left out on purpose: phone number and email address (it's a public page; the form relays messages instead), private repos (realtime-aggregator, etc.).
 
 ## Research (Nov 2026)
 - Award winners (Bruno Simon, Lusion, Active Theory, Stripe's homepage) share one idea: **the motion explains the work**.
