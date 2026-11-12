@@ -18,7 +18,9 @@ Then open http://localhost:8000.
 |---|---|
 | `index.html` | All content and sections |
 | `styles.css` | Design tokens (dark and light), layout, responsive rules |
-| `script.js` | Theme toggle, active-section nav, hero "event stream" canvas |
+| `script.js` | Theme toggle, nav (active section, small-screen menu), hero "event stream" canvas, "Follow a trade" scroll story, LeetCode stats refresh, contact form |
+| `404.html` | Not-found page |
+| `data/leetcode.json` | LeetCode stats, refreshed weekly by `.github/workflows/leetcode.yml` running `scripts/update_leetcode.py` |
 | `assets/` | Favicon, portrait, social preview image, `icons.svg` sprite (Simple Icons, CC0; Lucide, ISC) |
 | `PLAN.md` | Content, design and deployment plan |
 

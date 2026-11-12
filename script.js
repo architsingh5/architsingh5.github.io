@@ -11,6 +11,8 @@
     try { localStorage.setItem('theme', next); } catch (e) {}
     readColors();
   });
+  // Keep the browser UI colour in step with the theme actually showing.
+  const themeMetas = document.querySelectorAll('meta[name="theme-color"]');
   mqDark.addEventListener('change', readColors);
 
   /* ---------- Nav: border on scroll + active section ---------- */
@@ -18,6 +20,21 @@
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* ---------- Nav: menu on small screens ---------- */
+  const menuBtn = nav.querySelector('.nav-toggle');
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  menuBtn.hidden = false;
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelector('.nav-links').addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
+  });
+  document.addEventListener('click', e => { if (!nav.contains(e.target)) setMenu(false); });
+  window.matchMedia('(max-width: 720px)').addEventListener('change', () => setMenu(false));
 
   const links = [...document.querySelectorAll('.nav-links a')];
   const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
@@ -98,13 +115,17 @@
       lane: cs.getPropertyValue('--lane').trim(),
       muted: cs.getPropertyValue('--muted').trim(),
     };
+    const bg = cs.getPropertyValue('--bg').trim();
+    themeMetas.forEach(m => { m.content = bg; });
     if (reduceMotion.matches) draw(0);
   }
 
   function resize() {
     const r = canvas.getBoundingClientRect();
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = r.width; H = r.height;
+    const d = Math.min(window.devicePixelRatio || 1, 2);
+    // Rebuild only when the canvas really changed; phones fire resize as the address bar hides.
+    if (r.width === W && r.height === H && d === dpr && lanes.length) return;
+    dpr = d; W = r.width; H = r.height;
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -192,7 +213,8 @@
 
   readColors();
   resize();
-  window.addEventListener('resize', () => { resize(); });
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe(canvas);
+  else window.addEventListener('resize', resize);
   heroIO.observe(canvas);
 })();
 
@@ -216,7 +238,8 @@
   section.classList.add('js');
 
   // Where along the route each stage's node sits (route length, found by sampling).
-  const anchorsXY = [[300, 86], [470, 147], [470, 270], [465, 487], [355, 510], [300, 600]];
+  // Each rest point is just outside its node (the dot is drawn under the nodes), or on a Kafka lane.
+  const anchorsXY = [[300, 100], [470, 133], [470, 300], [465, 473], [372, 510], [300, 586]];
   const L = route.getTotalLength();
   const samples = [];
   for (let i = 0; i <= 600; i++) { const l = (L * i) / 600; const p = route.getPointAtLength(l); samples.push([l, p.x, p.y]); }
@@ -264,12 +287,23 @@
   function placeDot(len) {
     const p = route.getPointAtLength(Math.max(0, Math.min(L, len)));
     dot.setAttribute('transform', `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
-    tag.setAttribute('transform', p.y < 120 ? 'translate(0 60)' : '');
+    tag.setAttribute('transform', p.y < 120 ? 'translate(0 74)' : '');
     // keep the label inside the diagram
   }
 
+  // The line a step crosses to become active. Side by side it is just below mid-screen; stacked,
+  // the diagram is pinned over the top of the screen, so it is the middle of the space left under it.
+  const stage = section.querySelector('.trade-stage');
+  const stacked = window.matchMedia('(max-width: 900px)');
+  function triggerLine() {
+    const vh = window.innerHeight;
+    if (!stacked.matches) return vh * 0.55;
+    const b = Math.min(stage.getBoundingClientRect().bottom, vh * 0.7);
+    return b + (vh - b) / 2;
+  }
+
   function update() {
-    const mid = window.innerHeight * 0.55;
+    const mid = triggerLine();
     let i = 0, t = 0;
     for (let k = 0; k < steps.length; k++) {
       const r = steps[k].getBoundingClientRect();

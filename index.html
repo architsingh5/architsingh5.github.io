@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Archit Singh · Software Engineer</title>
   <meta name="description" content="Archit Singh: software engineer at Goldman Sachs building high-throughput Java services and Kafka pipelines across the trade lifecycle.">
-  <meta name="theme-color" content="#0d0f12">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d0f12">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5f0">
   <meta property="og:title" content="Archit Singh · Software Engineer">
   <meta property="og:description" content="High-throughput Java and Kafka systems across the trade lifecycle: orders, executions, clearing.">
   <meta property="og:type" content="website">
@@ -14,6 +15,26 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://architsingh5.github.io/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Archit Singh",
+    "url": "https://architsingh5.github.io/",
+    "image": "https://architsingh5.github.io/assets/archit.jpg",
+    "jobTitle": "Software Engineer",
+    "worksFor": { "@type": "Organization", "name": "Goldman Sachs" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Maulana Azad National Institute of Technology, Bhopal" },
+    "sameAs": [
+      "https://github.com/architsingh5",
+      "https://www.linkedin.com/in/architsingh5",
+      "https://leetcode.com/u/architsingh5/",
+      "https://www.geeksforgeeks.org/profile/architsingh5",
+      "https://x.com/ArchitSingh51"
+    ]
+  }
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +52,10 @@
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="Archit Singh, home">AS<span class="dot">.</span></a>
       <nav aria-label="Sections">
-        <ul class="nav-links">
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="#trade">How I build</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -118,6 +142,12 @@
                   <path data-s="4" d="M390,510 L355,510"/>
                   <path data-s="5" d="M300,533 L300,600"/>
                 </g>
+                <!-- drawn before the nodes, so the trade passes behind a node instead of over its label -->
+                <path class="route" d="M300,86 C300,130 470,115 470,147 L470,300 L300,300 L300,423 C300,465 465,450 465,487 L465,510 L355,510 L300,510 L300,600"/>
+                <g class="trade-dot" aria-hidden="true">
+                  <circle class="halo" r="16"/><circle class="core" r="7"/>
+                  <g class="tag"><rect x="-38" y="-46" width="76" height="22" rx="6"/><text x="0" y="-31">TRD-7731</text></g>
+                </g>
                 <g class="nodes">
                   <g data-s="0"><rect x="190" y="34" width="220" height="52" rx="10"/><text x="300" y="58" class="t">Exchange</text><text x="300" y="75" class="sub">ICE EU · NYMEX</text></g>
                   <g data-s="1"><rect x="65" y="147" width="130" height="46" rx="10"/><text x="130" y="176" class="t">host-1</text></g>
@@ -131,11 +161,6 @@
                   <g data-s="5"><rect x="190" y="600" width="220" height="52" rx="10"/><text x="300" y="624" class="t">Reports</text><text x="300" y="641" class="sub">TIBCO RV · dashboards</text></g>
                 </g>
                 <g class="packets" aria-hidden="true"></g>
-                <path class="route" d="M300,86 C300,130 470,115 470,147 L470,300 L300,300 L300,423 C300,465 465,450 465,487 L465,510 L355,510 L300,510 L300,600"/>
-                <g class="trade-dot" aria-hidden="true">
-                  <circle class="halo" r="16"/><circle class="core" r="7"/>
-                  <g class="tag"><rect x="-38" y="-40" width="76" height="22" rx="6"/><text x="0" y="-25">TRD-7731</text></g>
-                </g>
               </svg>
               <div class="hud mono" aria-hidden="true"><span>stage <b class="hud-n">01</b> / 06</span><span class="hud-name">Exchange</span></div>
               <div class="hud-bar" aria-hidden="true"><i></i></div>
@@ -325,9 +350,9 @@
             </div>
 
             <div class="seg" role="img" data-lc-aria aria-label="Solved by difficulty: Easy 300 (37%), Medium 443 (54%), Hard 75 (9%)">
-              <span class="seg-part d-easy" tabindex="0" data-lc-seg="Easy" style="flex-grow:300" data-tip="Easy · 300 solved · 37%"></span>
-              <span class="seg-part d-med" tabindex="0" data-lc-seg="Medium" style="flex-grow:443" data-tip="Medium · 443 solved · 54%"></span>
-              <span class="seg-part d-hard" tabindex="0" data-lc-seg="Hard" style="flex-grow:75" data-tip="Hard · 75 solved · 9%"></span>
+              <span class="seg-part d-easy" data-lc-seg="Easy" style="flex-grow:300" data-tip="Easy · 300 solved · 37%"></span>
+              <span class="seg-part d-med" data-lc-seg="Medium" style="flex-grow:443" data-tip="Medium · 443 solved · 54%"></span>
+              <span class="seg-part d-hard" data-lc-seg="Hard" style="flex-grow:75" data-tip="Hard · 75 solved · 9%"></span>
             </div>
 
             <table class="lc-table">
@@ -379,10 +404,10 @@
               <span class="lc-sub">problems solved<br><span class="mono">13 hard · 131 medium</span></span>
             </div>
             <div class="seg" role="img" aria-label="Solved by difficulty: Basic 12 (6%), Easy 57 (27%), Medium 131 (62%), Hard 13 (6%)">
-              <span class="seg-part d-basic" tabindex="0" style="flex-grow:12" data-tip="Basic · 12 solved · 6%"></span>
-              <span class="seg-part d-easy" tabindex="0" style="flex-grow:57" data-tip="Easy · 57 solved · 27%"></span>
-              <span class="seg-part d-med" tabindex="0" style="flex-grow:131" data-tip="Medium · 131 solved · 62%"></span>
-              <span class="seg-part d-hard" tabindex="0" style="flex-grow:13" data-tip="Hard · 13 solved · 6%"></span>
+              <span class="seg-part d-basic" style="flex-grow:12" data-tip="Basic · 12 solved · 6%"></span>
+              <span class="seg-part d-easy" style="flex-grow:57" data-tip="Easy · 57 solved · 27%"></span>
+              <span class="seg-part d-med" style="flex-grow:131" data-tip="Medium · 131 solved · 62%"></span>
+              <span class="seg-part d-hard" style="flex-grow:13" data-tip="Hard · 13 solved · 6%"></span>
             </div>
             <table class="lc-table">
               <caption class="sr-only">GeeksforGeeks problems solved by difficulty</caption>
