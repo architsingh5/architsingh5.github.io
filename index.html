@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Archit Singh · Software Engineer</title>
-  <meta name="description" content="Archit Singh: software engineer at Goldman Sachs building high-throughput Java services and Kafka pipelines across the trade lifecycle.">
+  <title>Archit Singh · SDE 2 Associate, Goldman Sachs</title>
+  <meta name="description" content="Archit Singh: SDE 2 Associate at Goldman Sachs on Listed Clearing, building high-throughput Java services and Kafka pipelines across the trade lifecycle.">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d0f12">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5f0">
-  <meta property="og:title" content="Archit Singh · Software Engineer">
-  <meta property="og:description" content="High-throughput Java and Kafka systems across the trade lifecycle: orders, executions, clearing.">
+  <meta property="og:title" content="Archit Singh · SDE 2 Associate, Goldman Sachs">
+  <meta property="og:description" content="SDE 2 Associate at Goldman Sachs. High-throughput Java and Kafka systems across the trade lifecycle: orders, executions, clearing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://architsingh5.github.io/">
   <meta property="og:image" content="https://architsingh5.github.io/assets/og.jpg">
@@ -23,7 +23,7 @@
     "name": "Archit Singh",
     "url": "https://architsingh5.github.io/",
     "image": "https://architsingh5.github.io/assets/archit.jpg",
-    "jobTitle": "Software Engineer",
+    "jobTitle": "SDE 2 Associate",
     "worksFor": { "@type": "Organization", "name": "Goldman Sachs" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Maulana Azad National Institute of Technology, Bhopal" },
     "sameAs": [
@@ -77,11 +77,11 @@
       <canvas class="stream" aria-hidden="true"></canvas>
       <div class="wrap hero-inner">
         <div class="hero-copy">
-        <p class="eyebrow mono"><span class="live"></span><span>Software Engineer · Goldman Sachs · Bengaluru</span></p>
+        <p class="eyebrow mono"><span class="live"></span><span>SDE 2 Associate · Goldman Sachs · Bengaluru</span></p>
         <h1>Archit Singh</h1>
-        <p class="lede">I'm on the <strong>Listed Clearing</strong> team in Middle Office, building high-throughput <strong>Java</strong> services
-          and <strong>Kafka</strong> pipelines that carry trades through their whole lifecycle: orders, executions and clearing.
-          The work is measured in throughput, latency and reliability, on systems used across the firm.</p>
+        <p class="lede">I'm on <strong>Listed Clearing</strong>, a Middle Office team in GBM Public, building high-throughput <strong>Java</strong>
+          services and <strong>Kafka</strong> pipelines that carry trades through orders, executions and clearing. In 3.5+ years at
+          Goldman Sachs I've worked on Listed Clearing and, before that, Interest Rate Risk Analytics in Corporate Treasury.</p>
         <div class="cta">
           <a class="btn primary" href="#contact">Get in touch</a>
           <a class="btn" href="https://github.com/architsingh5" target="_blank" rel="noopener">GitHub</a>
@@ -104,10 +104,10 @@
     <!-- IMPACT -->
     <section class="impact" aria-label="Impact highlights">
       <div class="wrap impact-grid">
-        <div class="stat"><span class="num mono">54% / 64%</span><span class="lbl">less load on the primary host for ICE EU and NYMEX flow</span></div>
-        <div class="stat"><span class="num mono">75%</span><span class="lbl">faster dashboard responses after query-path profiling</span></div>
-        <div class="stat"><span class="num mono">7d → 1d</span><span class="lbl">turnaround for firmwide mapping-rule changes</span></div>
-        <div class="stat"><span class="num mono">12%</span><span class="lbl">less end-to-end runtime for balance-sheet reports</span></div>
+        <div class="stat"><span class="src mono">Listed Clearing</span><span class="num mono">54% / 64%</span><span class="lbl">less load on the primary host for ICE EU and NYMEX flow</span></div>
+        <div class="stat"><span class="src mono">Listed Clearing</span><span class="num mono">0</span><span class="lbl">peak-load incidents since the ingestion striping rollout</span></div>
+        <div class="stat"><span class="src mono">Listed Clearing</span><span class="num mono">~30 min/day</span><span class="lbl">of manual Operations reporting automated (~2.5 hrs/week)</span></div>
+        <div class="stat"><span class="src mono">Corporate Treasury</span><span class="num mono">7d → 1d</span><span class="lbl">turnaround for firmwide mapping-rule changes</span></div>
       </div>
     </section>
 
@@ -158,7 +158,7 @@
                   <g data-s="3"><rect x="60" y="487" width="150" height="46" rx="10"/><text x="135" y="507" class="t">OLTP</text><text x="135" y="523" class="sub">GCP</text></g>
                   <g data-s="3"><rect x="390" y="487" width="150" height="46" rx="10"/><text x="465" y="507" class="t">Snowflake</text><text x="465" y="523" class="sub">OLAP</text></g>
                   <g data-s="4"><rect x="245" y="487" width="110" height="46" rx="10"/><text x="300" y="507" class="t">Controls</text><text x="300" y="523" class="sub">DB2 · recon</text></g>
-                  <g data-s="5"><rect x="190" y="600" width="220" height="52" rx="10"/><text x="300" y="624" class="t">Reports</text><text x="300" y="641" class="sub">TIBCO RV · dashboards</text></g>
+                  <g data-s="5"><rect x="190" y="600" width="220" height="52" rx="10"/><text x="300" y="624" class="t">Reports</text><text x="300" y="641" class="sub">TIBCO RV · broker reports</text></g>
                 </g>
                 <g class="packets" aria-hidden="true"></g>
               </svg>
@@ -177,7 +177,7 @@
               <p class="step-n mono">02 · Ingestion</p>
               <h3>Striped across three hosts</h3>
               <p>Instead of one primary host taking all the flow, I striped ICE EU and NYMEX traffic across <b>three load-balanced hosts</b>, so a busy market no longer means one hot machine.</p>
-              <p class="step-metric"><span class="num mono">54% / 64%</span><span class="lbl">less load on the primary host, with steady throughput at peak</span></p>
+              <p class="step-metric"><span class="num mono">54% / 64%</span><span class="lbl">less primary-host load for ICE EU / NYMEX, with zero peak-load incidents since the rollout</span></p>
             </article>
             <article class="step" data-step="2">
               <p class="step-n mono">03 · Kafka</p>
@@ -189,19 +189,19 @@
               <p class="step-n mono">04 · Hydration</p>
               <h3>Hydrated for every reader</h3>
               <p>Java/Kafka <b>Data Hydration</b> pipelines publish the trade twice: to a GCP-backed <b>OLTP</b> store for live lookups and to a <b>Snowflake</b> lakehouse for analytics.</p>
-              <p class="step-metric"><span class="num mono">OLTP + OLAP</span><span class="lbl">one pipeline feeding both kinds of store</span></p>
+              <p class="step-metric"><span class="num mono">3 data models</span><span class="lbl">external trades, internal executions and cleared trades, into OLTP + OLAP</span></p>
             </article>
             <article class="step" data-step="4">
               <p class="step-n mono">05 · Controls</p>
-              <h3>Checked, mapped, reconciled</h3>
-              <p><b>DB2</b>-based controls reconcile what landed against the source. The firmwide mapping rules that classify each trade are now read from a database instead of static definitions, so changing a rule no longer takes a week.</p>
-              <p class="step-metric"><span class="num mono">7d → 1d</span><span class="lbl">rule-change turnaround</span></p>
+              <h3>Checked and carried through</h3>
+              <p><b>DB2</b>-based controls reconcile what landed against the source. I also delivered the <b>order-channel attribute</b> end to end, carried on every trade from order capture through execution to clearing.</p>
+              <p class="step-metric"><span class="num mono">All markets</span><span class="lbl">order-channel attribute rolled out end to end across 3 systems: order capture, execution, clearing</span></p>
             </article>
             <article class="step" data-step="5">
               <p class="step-n mono">06 · Reporting</p>
               <h3>Out the other side</h3>
-              <p>Broker reports for the <b>Korean</b> and <b>South African</b> markets reconcile executions against client orders over <b>TIBCO RV</b> and run on an interval. Dashboards that read the data are now much faster.</p>
-              <p class="step-metric"><span class="num mono">75%</span><span class="lbl">faster dashboard responses after query-path profiling</span></p>
+              <p>Broker reports for the <b>Korean</b> and <b>South African</b> markets reconcile executions against client orders over <b>TIBCO RV</b>. Four daily reports for Operations that used to be built by hand now generate automatically.</p>
+              <p class="step-metric"><span class="num mono">~30 min/day</span><span class="lbl">of manual work eliminated (~2.5 hrs/week)</span></p>
             </article>
           </div>
         </div>
@@ -219,30 +219,28 @@
         <article class="job">
           <div class="job-meta">
             <h3>Goldman Sachs</h3>
-            <p class="role">Software Engineer, Analyst (SDE1)</p>
-            <p class="team">Listed Clearing · Middle Office</p>
+            <p class="role">Software Engineer, SDE 2 Associate</p>
             <p class="when mono">Jul 2023 – Present · Bengaluru</p>
           </div>
           <div class="job-body">
             <div class="theme">
-              <h4 class="mono">Throughput &amp; scale</h4>
+              <h4 class="mono">Listed Clearing · GBM Public (Middle Office)</h4>
+              <p class="when mono">May 2025 – Present</p>
               <ul>
-                <li>Scaled exchange trade ingestion by striping <b>ICE EU</b> and <b>NYMEX</b> flow across three load-balanced hosts, cutting primary-host load by <b>54%</b> and <b>64%</b> and keeping throughput steady at peak volumes.</li>
-                <li>Profiled and optimized query execution paths, cutting dashboard response time by <b>75%</b>. Added pre-rollout checks that assess how rule changes affect downstream systems.</li>
+                <li>Striped <b>ICE EU</b> and <b>NYMEX</b> trade ingestion across three load-balanced hosts, cutting primary-host load by <b>54%</b> (ICE EU) and <b>64%</b> (NYMEX), with <b>zero</b> peak-load incidents since the rollout.</li>
+                <li>Designed and built Java/Kafka <b>data-hydration</b> pipelines covering <b>3 data models</b> (external trades, internal executions, cleared trades) that publish to a GCP-backed OLTP store and a <b>Snowflake</b> lakehouse, with DB2-based controls and reconciliation and a <b>transactional outbox</b> for reliable delivery between services.</li>
+                <li>Built a broker-reporting service for the Korean and South African markets: it consumes real-time trades over <b>TIBCO RV</b>, reconciles executions against client orders and fully automates 4 daily Operations reports, eliminating <b>~30 min/day</b> (~2.5 hrs/week) of manual work.</li>
+                <li>Delivered the <b>order-channel attribute</b> end to end across <b>3 systems</b> (order capture → execution → clearing), rolled out across all markets.</li>
               </ul>
             </div>
             <div class="theme">
-              <h4 class="mono">Data pipelines</h4>
+              <h4 class="mono">Interest Rate Risk Analytics · Corporate Treasury</h4>
+              <p class="when mono">Jul 2023 – Apr 2025</p>
               <ul>
-                <li>Designed and built Java/Kafka <b>Data Hydration</b> pipelines that publish trade data to a GCP-backed OLTP store and a <b>Snowflake</b> lakehouse (OLAP), with DB2-based controls and reconciliation and a <b>transactional outbox</b> for reliable event delivery between services.</li>
-                <li>Built a broker-reporting service from scratch for the Korean and South African markets: it consumes real-time trades over <b>TIBCO RV</b>, reconciles executions against client orders and generates interval reports automatically.</li>
-              </ul>
-            </div>
-            <div class="theme">
-              <h4 class="mono">Platform &amp; architecture</h4>
-              <ul>
-                <li>Re-architected the firmwide mapping-rule infrastructure from static definitions to a database-driven design, cutting rule-change turnaround from <b>7 days to 1</b>.</li>
-                <li>Built a balance-sheet mapping engine with REST APIs that consolidates data from several upstream sources and generates reports automatically, cutting end-to-end runtime by <b>12%</b>.</li>
+                <li>Moved firmwide mapping rules from static definitions to a database-driven design, cutting rule-change turnaround from <b>7 days to 1</b>.</li>
+                <li>Profiled and optimized query execution paths, making dashboard responses <b>75%</b> faster, and added pre-rollout checks that assess the impact of rule changes.</li>
+                <li>Built a sign-off workflow and firmwide distribution pipelines that shortened the reporting cycle from <b>T+20 to T+12</b>.</li>
+                <li>Built a balance-sheet mapping engine with REST APIs that consolidates data from several upstream sources, cutting end-to-end runtime by <b>12%</b>.</li>
               </ul>
             </div>
           </div>
