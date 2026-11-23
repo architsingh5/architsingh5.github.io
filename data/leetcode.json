@@ -1,25 +1,25 @@
 {
   "username": "architsingh5",
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "solved": 818,
   "acceptance": 69.4,
-  "ranking": 66104,
+  "ranking": 66367,
   "badges": 16,
   "difficulty": [
     {
       "name": "Easy",
       "solved": 300,
-      "total": 976
+      "total": 978
     },
     {
       "name": "Medium",
       "solved": 443,
-      "total": 2148
+      "total": 2152
     },
     {
       "name": "Hard",
       "solved": 75,
-      "total": 990
+      "total": 993
     }
   ],
   "languages": [
@@ -29,7 +29,7 @@
     },
     {
       "name": "Java",
-      "solved": 110
+      "solved": 114
     },
     {
       "name": "MySQL",
